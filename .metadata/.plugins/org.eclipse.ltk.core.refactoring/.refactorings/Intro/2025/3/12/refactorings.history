@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;DROPdowns&apos; to &apos;DropDowns&apos;&#x0D;&#x0A;- Original project: &apos;Intro&apos;&#x0D;&#x0A;- Original element: &apos;DROPdowns&apos;&#x0D;&#x0A;- Renamed element: &apos;DropDowns&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DROPdowns&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src=/optional=/true=/=/maven.pomderived=/true=/&lt;{DROPdowns.java[DROPdowns" matchStrategy="1" name="DropDowns" qualified="false" references="true" similarDeclarations="false" stamp="1742307086685" textual="false" version="1.0"/>
+</session>
