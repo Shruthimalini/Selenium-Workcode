@@ -6,7 +6,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/01_SeleniumIntroduction.md)  
-💻 [View Code](src/main/java/seleniumpractice/SelIntro.java)  
+💻 [View Code](src/main/java/seleniumpractice1/SelIntro.java)  
 🖼️ [Screenshot](screenshots/01_SeleniumIntroduction.png)
 
 </details>
@@ -25,7 +25,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/02_SeleniumGetStarted.md)  
-💻 [View Code](src/seleniumpractice/02_SeleniumGetStarted.java)  
+💻 [View Code](src/main/java/seleniumpractice/SelIntro.java)  
 🖼️ [Screenshot](screenshots/02_SeleniumGetStarted.png)
 
 </details>
