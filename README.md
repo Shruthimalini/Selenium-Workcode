@@ -45,7 +45,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/03_BrushUpJavaConcepts.md)  
-💻 [View Code](src/seleniumpractice/03_BrushUpJavaConcepts.java)  
+💻 [View Code](src/main/java/javabasic)  
 🖼️ [Screenshot](screenshots/03_BrushUpJavaConcepts.png)
 
 </details>
