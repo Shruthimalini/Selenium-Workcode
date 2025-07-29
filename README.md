@@ -6,7 +6,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/01_SeleniumIntroduction.md)  
-💻 [View Code](src/seleniumpractice/01_SeleniumIntroduction.java)  
+💻 [View Code](src/main/java/seleniumpractice/SelIntro.java)  
 🖼️ [Screenshot](screenshots/01_SeleniumIntroduction.png)
 
 </details>
