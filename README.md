@@ -103,7 +103,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/06_SeleniumAutomateWebElements.md)  
-💻 [View Code](src/seleniumpractice/06_SeleniumAutomateWebElements.java)  
+💻 [View Code](src/main/java/webElements)  
 🖼️ [Screenshot](screenshots/06_SeleniumAutomateWebElements.png)
 
 </details>
