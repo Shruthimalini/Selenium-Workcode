@@ -23,7 +23,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/02_SeleniumGetStarted.md)  
-💻 [View Code](src/main/java/seleniumpractice/SelIntro.java)  
+💻 [View Code](src/main/java/seleniumIntro)  
 🖼️ [Screenshot](screenshots/02_SeleniumGetStarted.png)
 
 </details>
@@ -60,7 +60,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/04_LocatorsTechniques.md)  
-💻 [View Code](src/seleniumpractice/04_LocatorsTechniques.java)  
+💻 [View Code](src/main/java/locatorsTechniques)  
 🖼️ [Screenshot](screenshots/04_LocatorsTechniques.png)
 
 </details>
@@ -78,7 +78,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/05_AdvancedLocators.md)  
-💻 [View Code](src/seleniumpractice/05_AdvancedLocators.java)  
+💻 [View Code](src/main/java/locatorsTechniques)  
 🖼️ [Screenshot](screenshots/05_AdvancedLocators.png)
 
 </details>
