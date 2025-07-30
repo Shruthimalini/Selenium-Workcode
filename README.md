@@ -2,8 +2,7 @@
 <summary><strong>1️⃣ Selenium Introduction</strong></summary>
 
 - Selenium Features – What you need to know  
-- Selenium WebDriver Architecture Simplified  
-- Code Practice  
+- Selenium WebDriver Architecture Simplified   
 
 📝 [Description](descriptions/01_SeleniumIntroduction.md)    
 🖼️ [Screenshot](screenshots/01_SeleniumIntroduction.png)
