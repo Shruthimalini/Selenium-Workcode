@@ -5,8 +5,7 @@
 - Selenium WebDriver Architecture Simplified  
 - Code Practice  
 
-📝 [Description](descriptions/01_SeleniumIntroduction.md)  
-💻 [View Code](src/main/java/seleniumpractice1/SelIntro.java)  
+📝 [Description](descriptions/01_SeleniumIntroduction.md)    
 🖼️ [Screenshot](screenshots/01_SeleniumIntroduction.png)
 
 </details>
