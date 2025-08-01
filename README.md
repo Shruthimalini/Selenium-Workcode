@@ -1,5 +1,5 @@
 <details>
-<summary><strong>1️⃣ Selenium Introduction</strong></summary>
+<summary><strong>1. Selenium Introduction</strong></summary>
 
 - Selenium Features – What you need to know  
 - Selenium WebDriver Architecture Simplified   
@@ -10,7 +10,7 @@
 </details>
 
 <details>
-<summary><strong>2️⃣ Selenium - Get Started with Basic steps of the Selenium Web driver</strong></summary>
+<summary><strong>2. Selenium - Get Started with Basic steps of the Selenium Web driver</strong></summary>
 
 - Install Java & Eclipse - Setup Maven Project from Scratch  
 - Setting up Eclipse Maven Project with Selenium dependencies from Scratch  
@@ -29,7 +29,7 @@
 </details>
 
 <details>
-<summary><strong>3️⃣ Brush up Java Concepts for Selenium Automation</strong></summary>
+<summary><strong>3. Brush up Java Concepts for Selenium Automation</strong></summary>
 
 - Course Strategy to learn Java basics for Selenium Automation  
 - Introduction to Java variables and Data types with examples  
@@ -49,7 +49,7 @@
 </details>
 
 <details>
-<summary><strong>4️⃣ Locators Techniques & Tools to identify Objects</strong></summary>
+<summary><strong>4. Locators Techniques & Tools to identify Objects</strong></summary>
 
 - Importance of locators in Selenium WebDriver to identify the elements  
 - Identifying the Web elements with id and name locators with example  
@@ -66,7 +66,7 @@
 </details>
 
 <details>
-<summary><strong>5️⃣ Advances Locators Identification</strong></summary>
+<summary><strong>5. Advances Locators Identification</strong></summary>
 
 - Generating Css selectors based on regular expressions - Example  
 - Identifying web elements based on unique Tag name locators - example  
@@ -84,7 +84,7 @@
 </details>
 
 <details>
-<summary><strong>6️⃣ Selenium Webdriver - Techniques to automate Web Elements</strong></summary>
+<summary><strong>6. Selenium Webdriver - Techniques to automate Web Elements</strong></summary>
 
 - Update with latest Selenium Version - Selenium Manager (Beta)  
 - Handling Static dropdowns with Select webdriver API  
@@ -109,7 +109,7 @@
 </details>
 
 <details>
-<summary><strong>7️⃣ Deep Dive into Functional testing with Selenium</strong></summary>
+<summary><strong>7. Deep Dive into Functional testing with Selenium</strong></summary>
 
 - Code formatting and Debugging  
 - Problem - Adding Items into Cart for Ecommerce App  
@@ -126,7 +126,7 @@
 </details>
 
 <details>
-<summary><strong>8️⃣ Synchronization usage in Selenium webdriver</strong></summary>
+<summary><strong>8. Synchronization usage in Selenium webdriver</strong></summary>
 
 - What is Implicit wait? Explain with real time scenario  
 - What is explicit wait? Explain with real time scenario  
@@ -146,7 +146,7 @@
 </details>
 
 <details>
-<summary><strong>9️⃣ Techniques to automate Ajax calls, Child windows and IFrames</strong></summary>
+<summary><strong>9. Techniques to automate Ajax calls, Child windows and IFrames</strong></summary>
 
 - Handling Ajax/Mouse Interactions  
 - Actions class-real time example  
@@ -163,8 +163,9 @@
 🖼️ [Screenshot](screenshots/09_AjaxChildWindowsIFrames.png)
 
 </details>
+
 <details>
-<summary><strong>🔟 Real Time Exercises (End to End Programming)</strong></summary>
+<summary><strong>10. Real Time Exercises (End to End Programming)</strong></summary>
 
 - Practice Exercise – Print the links count in the page  
 - Exercise 1.1 – Limiting WebDriver scope  
@@ -181,7 +182,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣1️⃣ Practical Problems and Methods to Handle with Selenium</strong></summary>
+<summary><strong>11. Practical Problems and Methods to Handle with Selenium</strong></summary>
 
 - How to perform scrolling within table and window level using `JavaScriptExecutor`  
 - How to handle table grids in webpage  
@@ -196,7 +197,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣2️⃣ Miscellaneous Topics in Selenium WebDriver</strong></summary>
+<summary><strong>12. Miscellaneous Topics in Selenium WebDriver</strong></summary>
 
 - Handling HTTPS certifications in automated browsers  
 - Explore ChromeOptions to set proxies, plugins & paths on Chrome browser  
@@ -214,7 +215,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣3️⃣ Selenium Java Streams – Automate Sort, Pagination & Filtering Web Tables</strong></summary>
+<summary><strong>13. Selenium Java Streams – Automate Sort, Pagination & Filtering Web Tables</strong></summary>
 
 - 📌 *Important Note*: Plan of learning this section  
 - Learn everything about Java Streams  
@@ -230,7 +231,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣4️⃣ Selenium 4.0 – Latest Features</strong></summary>
+<summary><strong>14. Selenium 4.0 – Latest Features</strong></summary>
 
 - Introduction to Relative Locators – Part 1  
 - Relative locators with real-time examples  
@@ -245,7 +246,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣5️⃣ Framework Part 1 – TestNG</strong></summary>
+<summary><strong>15. Framework Part 1 – TestNG</strong></summary>
 
 - Why TestNG and its advantages  
 - Running test cases in TestNG without Java compiler  
@@ -270,7 +271,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣6️⃣ Learn Java Object-Oriented Principles for Framework Development</strong></summary>
+<summary><strong>16. Learn Java Object-Oriented Principles for Framework Development</strong></summary>
 
 - How TestNG Annotations help with inheritance to remove boilerplate code in test  
 - How to pass values from test through parameterized constructor & `this` keyword  
@@ -283,7 +284,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣7️⃣ Framework Part 2 – Page Object & Factory Design Pattern</strong></summary>
+<summary><strong>17. Framework Part 2 – Page Object & Factory Design Pattern</strong></summary>
 
 - What is Page Object Model? Advantages of its implementation  
 - Creating Page Object classes for login screen and migrating the test  
@@ -301,7 +302,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣8️⃣ Framework Part 3 – Test Configuration, Global Properties & Parallel Runs</strong></summary>
+<summary><strong>18. Framework Part 3 – Test Configuration, Global Properties & Parallel Runs</strong></summary>
 
 - Creating Base Test which holds common test configuration methods  
 - Initialize driver and create utility to launch app with `@BeforeMethod` annotation  
@@ -317,7 +318,7 @@
 </details>
 
 <details>
-<summary><strong>1️⃣9️⃣ Framework Part 4 – Test Strategy & Execution of Parallel Tests</strong></summary>
+<summary><strong>19. Framework Part 4 – Test Strategy & Execution of Parallel Tests</strong></summary>
 
 - Agenda of implementing parameterization into tests with `@DataProvider`  
 - Integration of `HashMap` into DataProvider to send data as one hash object  
@@ -331,7 +332,7 @@
 </details>
 
 <details>
-<summary><strong>2️⃣0️⃣ Framework Part 5 – Extent HTML Reports, Listeners & Thread Safety</strong></summary>
+<summary><strong>20. Framework Part 5 – Extent HTML Reports, Listeners & Thread Safety</strong></summary>
 
 - What are Extent Reports? Quick 30-minute tutorial  
 - Integrating Extent Reports into existing framework using TestNG listeners  
@@ -346,7 +347,7 @@
 </details>
 
 <details>
-<summary><strong>2️⃣1️⃣ Framework Part 6 – Test Execution via Maven & Jenkins CI/CD Integration</strong></summary>
+<summary><strong>21. Framework Part 6 – Test Execution via Maven & Jenkins CI/CD Integration</strong></summary>
 
 - How to run tests in the framework from terminal using Maven commands  
 - Set global parameters using Maven commands and update tests at runtime  
@@ -359,3 +360,4 @@
 💻 [View Code](src/main/java/framework/part6)  
 🖼️ [Screenshot](screenshots/21_FrameworkPart6_MavenJenkins.png)
 
+</details>
