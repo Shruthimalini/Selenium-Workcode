@@ -164,7 +164,7 @@
 
 </details>
 <details>
-<summary><strong>🧪 Real Time Exercises (End to End Programming)</strong></summary>
+<summary><strong>🔟 Real Time Exercises (End to End Programming)</strong></summary>
 
 - Practice Exercise – Print the links count in the page  
 - Exercise 1.1 – Limiting WebDriver scope  
@@ -174,14 +174,14 @@
 - Handling calendar UI in eCommerce/Travel websites  
 - Generic method to handle calendar with month and date  
 
-📝 [Description](descriptions/RealTimeExercises.md)  
+📝 [Description](descriptions/10_RealTimeExercises.md)  
 💻 [View Code](src/main/java/realtime)  
-🖼️ [Screenshot](screenshots/RealTimeExercises.png)
+🖼️ [Screenshot](screenshots/10_RealTimeExercises.png)
 
 </details>
 
 <details>
-<summary><strong>🔧 Practical Problems and Methods to Handle with Selenium</strong></summary>
+<summary><strong>1️⃣1️⃣ Practical Problems and Methods to Handle with Selenium</strong></summary>
 
 - How to perform scrolling within table and window level using `JavaScriptExecutor`  
 - How to handle table grids in webpage  
@@ -189,13 +189,14 @@
 - Web Tables – Assignment  
 - Autocomplete Dropdown – Assignment  
 
-📝 [Description](descriptions/PracticalProblemsSelenium.md)  
+📝 [Description](descriptions/11_PracticalProblemsSelenium.md)  
 💻 [View Code](src/main/java/practicalproblems)  
-🖼️ [Screenshot](screenshots/PracticalProblemsSelenium.png)
+🖼️ [Screenshot](screenshots/11_PracticalProblemsSelenium.png)
 
 </details>
+
 <details>
-<summary><strong>🧰 Miscellaneous Topics in Selenium WebDriver</strong></summary>
+<summary><strong>1️⃣2️⃣ Miscellaneous Topics in Selenium WebDriver</strong></summary>
 
 - Handling HTTPS certifications in automated browsers  
 - Explore ChromeOptions to set proxies, plugins & paths on Chrome browser  
@@ -206,14 +207,14 @@
 - Iterate over all links in the page to validate broken links mechanism  
 - Importance of Soft Assertions in Selenium WebDriver  
 
-📝 [Description](descriptions/MiscTopicsSelenium.md)  
+📝 [Description](descriptions/12_MiscTopicsSelenium.md)  
 💻 [View Code](src/main/java/miscellaneous)  
-🖼️ [Screenshot](screenshots/MiscTopicsSelenium.png)
+🖼️ [Screenshot](screenshots/12_MiscTopicsSelenium.png)
 
 </details>
 
 <details>
-<summary><strong>🔄 Selenium Java Streams – Automate Sort, Pagination & Filtering Web Tables</strong></summary>
+<summary><strong>1️⃣3️⃣ Selenium Java Streams – Automate Sort, Pagination & Filtering Web Tables</strong></summary>
 
 - 📌 *Important Note*: Plan of learning this section  
 - Learn everything about Java Streams  
@@ -222,14 +223,14 @@
 - Automating pagination scenarios to search the data using `do-while` loop  
 - Filter the web table using Selenium Java Streams  
 
-📝 [Description](descriptions/SeleniumStreams.md)  
+📝 [Description](descriptions/13_SeleniumStreams.md)  
 💻 [View Code](src/main/java/streams)  
-🖼️ [Screenshot](screenshots/SeleniumStreams.png)
+🖼️ [Screenshot](screenshots/13_SeleniumStreams.png)
 
 </details>
+
 <details>
-<details>
-<summary><strong>⚙️ Selenium 4.0 – Latest Features</strong></summary>
+<summary><strong>1️⃣4️⃣ Selenium 4.0 – Latest Features</strong></summary>
 
 - Introduction to Relative Locators – Part 1  
 - Relative locators with real-time examples  
@@ -237,14 +238,14 @@
 - Taking WebElement partial screenshot with Selenium  
 - Capturing height and width of WebElement for UX validation  
 
-📝 [Description](descriptions/Selenium4_Features.md)  
+📝 [Description](descriptions/14_Selenium4_Features.md)  
 💻 [View Code](src/main/java/selenium4features)  
-🖼️ [Screenshot](screenshots/Selenium4_Features.png)
+🖼️ [Screenshot](screenshots/14_Selenium4_Features.png)
 
 </details>
 
 <details>
-<summary><strong>🧪 Framework Part 1 – TestNG</strong></summary>
+<summary><strong>1️⃣5️⃣ Framework Part 1 – TestNG</strong></summary>
 
 - Why TestNG and its advantages  
 - Running test cases in TestNG without Java compiler  
@@ -262,44 +263,27 @@
 - `Listeners` interface in TestNG framework  
 - Running tests in parallel and generating reports  
 
-📝 [Description](descriptions/TestNG_Framework_Part1.md)  
+📝 [Description](descriptions/15_TestNG_Framework_Part1.md)  
 💻 [View Code](src/main/java/testngframework)  
-🖼️ [Screenshot](screenshots/TestNG_Framework_Part1.png)
+🖼️ [Screenshot](screenshots/15_TestNG_Framework_Part1.png)
 
 </details>
+
 <details>
-<summary><strong>👨‍💻 Learn Java Object-Oriented Principles for Framework Development</strong></summary>
+<summary><strong>1️⃣6️⃣ Learn Java Object-Oriented Principles for Framework Development</strong></summary>
 
 - How TestNG Annotations help with inheritance to remove boilerplate code in test  
 - How to pass values from test through parameterized constructor & `this` keyword  
 - Usage of `super` keyword in the constructor to pass values to parent class  
 
-📝 [Description](descriptions/JavaOOP_For_Framework.md)  
+📝 [Description](descriptions/16_JavaOOP_For_Framework.md)  
 💻 [View Code](src/main/java/oopframework)  
-🖼️ [Screenshot](screenshots/JavaOOP_For_Framework.png)
+🖼️ [Screenshot](screenshots/16_JavaOOP_For_Framework.png)
 
 </details>
 
 <details>
-<summary><strong>🧱 Framework Part 1 – Create Maven Project and Prepare Functional End-to-End Test</strong></summary>
-
-- FAQs about framework design  
-- Create new Maven project and all framework dependencies  
-- Ecommerce application demo which will be used in the framework  
-- Selenium program on WebDriverManager – Login – Get products list  
-- Selenium program to retrieve product and add to cart using Java Streams  
-- Implementation of explicit wait to handle application synchronously on loading  
-- Logic to verify items in the cart with Streams and checkout  
-- Wrapping up end-to-end automation script on purchasing order in ecommerce app  
-
-📝 [Description](descriptions/FrameworkPart1_Maven.md)  
-💻 [View Code](src/main/java/framework/part1)  
-🖼️ [Screenshot](screenshots/FrameworkPart1_Maven.png)
-
-</details>
-
-<details>
-<summary><strong>🏗️ Framework Part 2 – Page Object & Factory Design Pattern</strong></summary>
+<summary><strong>1️⃣7️⃣ Framework Part 2 – Page Object & Factory Design Pattern</strong></summary>
 
 - What is Page Object Model? Advantages of its implementation  
 - Creating Page Object classes for login screen and migrating the test  
@@ -310,13 +294,14 @@
 - Creating common methods in abstract component and extending in Page classes  
 - Wrapping up the whole test with complete refactor into Page Object Model  
 
-📝 [Description](descriptions/FrameworkPart2_POM.md)  
+📝 [Description](descriptions/17_FrameworkPart2_POM.md)  
 💻 [View Code](src/main/java/framework/part2)  
-🖼️ [Screenshot](screenshots/FrameworkPart2_POM.png)
+🖼️ [Screenshot](screenshots/17_FrameworkPart2_POM.png)
 
 </details>
+
 <details>
-<summary><strong>🧪 Framework Part 3 – Test Configuration Methods, Global Properties & Parallel Runs</strong></summary>
+<summary><strong>1️⃣8️⃣ Framework Part 3 – Test Configuration, Global Properties & Parallel Runs</strong></summary>
 
 - Creating Base Test which holds common test configuration methods  
 - Initialize driver and create utility to launch app with `@BeforeMethod` annotation  
@@ -325,28 +310,28 @@
 - Create new test methods with `dependsOnMethods` attribute based on test strategy design  
 - How to run tests/classes in parallel & apply groups using `testng.xml`  
 
-📝 [Description](descriptions/FrameworkPart3_ConfigParallel.md)  
+📝 [Description](descriptions/18_FrameworkPart3_ConfigParallel.md)  
 💻 [View Code](src/main/java/framework/part3)  
-🖼️ [Screenshot](screenshots/FrameworkPart3_ConfigParallel.png)
+🖼️ [Screenshot](screenshots/18_FrameworkPart3_ConfigParallel.png)
 
 </details>
 
 <details>
-<summary><strong>🧩 Framework Part 4 – Test Strategy: Control Tests & Execution of Parallel Tests</strong></summary>
+<summary><strong>1️⃣9️⃣ Framework Part 4 – Test Strategy & Execution of Parallel Tests</strong></summary>
 
 - Agenda of implementing parameterization into tests with `@DataProvider`  
 - Integration of `HashMap` into DataProvider to send data as one hash object  
 - How to read the data from JSON files and create a list of HashMaps for testing  
 - How to create screenshot utility in BaseTest class for catching failed tests  
 
-📝 [Description](descriptions/FrameworkPart4_TestStrategy.md)  
+📝 [Description](descriptions/19_FrameworkPart4_TestStrategy.md)  
 💻 [View Code](src/main/java/framework/part4)  
-🖼️ [Screenshot](screenshots/FrameworkPart4_TestStrategy.png)
+🖼️ [Screenshot](screenshots/19_FrameworkPart4_TestStrategy.png)
 
 </details>
 
 <details>
-<summary><strong>📊 Framework Part 5 – Extent HTML Reports, TestNG Listeners & Thread-Safe Execution</strong></summary>
+<summary><strong>2️⃣0️⃣ Framework Part 5 – Extent HTML Reports, Listeners & Thread Safety</strong></summary>
 
 - What are Extent Reports? Quick 30-minute tutorial  
 - Integrating Extent Reports into existing framework using TestNG listeners  
@@ -354,14 +339,14 @@
 - Concurrency problem – Implement `ThreadLocal` class to avoid sync issues in tests  
 - `IRetryAnalyzer` to rerun flaky failed Selenium tests in the framework  
 
-📝 [Description](descriptions/FrameworkPart5_ReportsListeners.md)  
+📝 [Description](descriptions/20_FrameworkPart5_ReportsListeners.md)  
 💻 [View Code](src/main/java/framework/part5)  
-🖼️ [Screenshot](screenshots/FrameworkPart5_ReportsListeners.png)
+🖼️ [Screenshot](screenshots/20_FrameworkPart5_ReportsListeners.png)
 
 </details>
 
 <details>
-<summary><strong>🚀 Framework Part 6 – Test Execution from Maven & Integration with Jenkins CI/CD</strong></summary>
+<summary><strong>2️⃣1️⃣ Framework Part 6 – Test Execution via Maven & Jenkins CI/CD Integration</strong></summary>
 
 - How to run tests in the framework from terminal using Maven commands  
 - Set global parameters using Maven commands and update tests at runtime  
@@ -370,9 +355,7 @@
 - How to run tests in headless mode and integrate the parameter in Jenkins  
 - Schedule Jenkins jobs with regular expressions and trigger nightly automation jobs  
 
-📝 [Description](descriptions/FrameworkPart6_MavenJenkins.md)  
+📝 [Description](descriptions/21_FrameworkPart6_MavenJenkins.md)  
 💻 [View Code](src/main/java/framework/part6)  
-🖼️ [Screenshot](screenshots/FrameworkPart6_MavenJenkins.png)
-
-</details>
+🖼️ [Screenshot](screenshots/21_FrameworkPart6_MavenJenkins.png)
 
