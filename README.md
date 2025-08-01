@@ -119,7 +119,7 @@
 - Fixing the problem of inconsistent locators and making tests clean  
 - Code Practice  
 
-📝 [Description](descriptions/07_FunctionalTesting.md)  
+📝 [Description](descriptions/07_Deep Dive into Functional Testing with Selenium.md)  
 💻 [View Code](src/seleniumpractice/07_FunctionalTesting.java)  
 🖼️ [Screenshot](screenshots/07_FunctionalTesting.png)
 
@@ -139,7 +139,7 @@
 - Practise example on Fluent wait  
 - Code Practice  
 
-📝 [Description](descriptions/08_Synchronization.md)  
+📝 [Description](descriptions/08_Synchronization Usage in Selenium WebDriver.md)  
 💻 [View Code](src/seleniumpractice/08_Synchronization.java)  
 🖼️ [Screenshot](screenshots/08_Synchronization.png)
 
@@ -158,7 +158,7 @@
 - Frames Assignment  
 - Code Practice  
 
-📝 [Description](descriptions/09_AjaxChildWindowsIFrames.md)  
+📝 [Description]descriptions/08_Synchronization Usage in Selenium WebDriver.md)  
 💻 [View Code](src/seleniumpractice/09_AjaxChildWindowsIFrames.java)  
 🖼️ [Screenshot](screenshots/09_AjaxChildWindowsIFrames.png)
 
@@ -175,7 +175,7 @@
 - Handling calendar UI in eCommerce/Travel websites  
 - Generic method to handle calendar with month and date  
 
-📝 [Description](descriptions/10_RealTimeExercises.md)  
+📝 [Description](descriptions/10_Real Time Exercises (End to End Programming).md)  
 💻 [View Code](src/main/java/realtime)  
 🖼️ [Screenshot](screenshots/10_RealTimeExercises.png)
 
@@ -190,7 +190,7 @@
 - Web Tables – Assignment  
 - Autocomplete Dropdown – Assignment  
 
-📝 [Description](descriptions/11_PracticalProblemsSelenium.md)  
+📝 [Description](descriptions/11_Practical Problems and Methods to Handle with Selenium.md)  
 💻 [View Code](src/main/java/practicalproblems)  
 🖼️ [Screenshot](screenshots/11_PracticalProblemsSelenium.png)
 
