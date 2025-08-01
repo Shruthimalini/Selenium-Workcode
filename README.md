@@ -163,3 +163,216 @@
 🖼️ [Screenshot](screenshots/09_AjaxChildWindowsIFrames.png)
 
 </details>
+<details>
+<summary><strong>🧪 Real Time Exercises (End to End Programming)</strong></summary>
+
+- Practice Exercise – Print the links count in the page  
+- Exercise 1.1 – Limiting WebDriver scope  
+- How to open the links in separate tabs – Optimized solution  
+- Getting the titles of child tabs with optimized `while` loop  
+- Practice Exercise – Assignment  
+- Handling calendar UI in eCommerce/Travel websites  
+- Generic method to handle calendar with month and date  
+
+📝 [Description](descriptions/RealTimeExercises.md)  
+💻 [View Code](src/main/java/realtime)  
+🖼️ [Screenshot](screenshots/RealTimeExercises.png)
+
+</details>
+
+<details>
+<summary><strong>🔧 Practical Problems and Methods to Handle with Selenium</strong></summary>
+
+- How to perform scrolling within table and window level using `JavaScriptExecutor`  
+- How to handle table grids in webpage  
+- Parsing string and comparing with generated sum value – Exercise  
+- Web Tables – Assignment  
+- Autocomplete Dropdown – Assignment  
+
+📝 [Description](descriptions/PracticalProblemsSelenium.md)  
+💻 [View Code](src/main/java/practicalproblems)  
+🖼️ [Screenshot](screenshots/PracticalProblemsSelenium.png)
+
+</details>
+<details>
+<summary><strong>🧰 Miscellaneous Topics in Selenium WebDriver</strong></summary>
+
+- Handling HTTPS certifications in automated browsers  
+- Explore ChromeOptions to set proxies, plugins & paths on Chrome browser  
+- Maximizing window and deleting cookies  
+- How to take screenshots in Selenium  
+- Strategy to automate broken links with Selenium  
+- Open connection method to identify status codes of the links  
+- Iterate over all links in the page to validate broken links mechanism  
+- Importance of Soft Assertions in Selenium WebDriver  
+
+📝 [Description](descriptions/MiscTopicsSelenium.md)  
+💻 [View Code](src/main/java/miscellaneous)  
+🖼️ [Screenshot](screenshots/MiscTopicsSelenium.png)
+
+</details>
+
+<details>
+<summary><strong>🔄 Selenium Java Streams – Automate Sort, Pagination & Filtering Web Tables</strong></summary>
+
+- 📌 *Important Note*: Plan of learning this section  
+- Learn everything about Java Streams  
+- Perform web table sorting using Selenium Java Streams  
+- Build custom Selenium methods using Streams & Mapper  
+- Automating pagination scenarios to search the data using `do-while` loop  
+- Filter the web table using Selenium Java Streams  
+
+📝 [Description](descriptions/SeleniumStreams.md)  
+💻 [View Code](src/main/java/streams)  
+🖼️ [Screenshot](screenshots/SeleniumStreams.png)
+
+</details>
+<details>
+<details>
+<summary><strong>⚙️ Selenium 4.0 – Latest Features</strong></summary>
+
+- Introduction to Relative Locators – Part 1  
+- Relative locators with real-time examples  
+- Invoking multiple windows/tabs from Selenium  
+- Taking WebElement partial screenshot with Selenium  
+- Capturing height and width of WebElement for UX validation  
+
+📝 [Description](descriptions/Selenium4_Features.md)  
+💻 [View Code](src/main/java/selenium4features)  
+🖼️ [Screenshot](screenshots/Selenium4_Features.png)
+
+</details>
+
+<details>
+<summary><strong>🧪 Framework Part 1 – TestNG</strong></summary>
+
+- Why TestNG and its advantages  
+- Running test cases in TestNG without Java compiler  
+- Importance of XML file in TestNG configuration  
+- Prioritizing the test cases with TestNG  
+- Include and exclude mechanism to control test cases  
+- Executing the test cases at package level with regex  
+- TestNG Annotations – Part 1  
+- TestNG Annotations – Part 2  
+- Usage of Groups functionality in TestNG  
+- Annotations helper attributes with examples  
+- Parameterizing from TestNG XML file  
+- `@DataProvider` annotation – Parameterizing test cases – 1  
+- `@DataProvider` annotation – Parameterizing test cases – 2  
+- `Listeners` interface in TestNG framework  
+- Running tests in parallel and generating reports  
+
+📝 [Description](descriptions/TestNG_Framework_Part1.md)  
+💻 [View Code](src/main/java/testngframework)  
+🖼️ [Screenshot](screenshots/TestNG_Framework_Part1.png)
+
+</details>
+<details>
+<summary><strong>👨‍💻 Learn Java Object-Oriented Principles for Framework Development</strong></summary>
+
+- How TestNG Annotations help with inheritance to remove boilerplate code in test  
+- How to pass values from test through parameterized constructor & `this` keyword  
+- Usage of `super` keyword in the constructor to pass values to parent class  
+
+📝 [Description](descriptions/JavaOOP_For_Framework.md)  
+💻 [View Code](src/main/java/oopframework)  
+🖼️ [Screenshot](screenshots/JavaOOP_For_Framework.png)
+
+</details>
+
+<details>
+<summary><strong>🧱 Framework Part 1 – Create Maven Project and Prepare Functional End-to-End Test</strong></summary>
+
+- FAQs about framework design  
+- Create new Maven project and all framework dependencies  
+- Ecommerce application demo which will be used in the framework  
+- Selenium program on WebDriverManager – Login – Get products list  
+- Selenium program to retrieve product and add to cart using Java Streams  
+- Implementation of explicit wait to handle application synchronously on loading  
+- Logic to verify items in the cart with Streams and checkout  
+- Wrapping up end-to-end automation script on purchasing order in ecommerce app  
+
+📝 [Description](descriptions/FrameworkPart1_Maven.md)  
+💻 [View Code](src/main/java/framework/part1)  
+🖼️ [Screenshot](screenshots/FrameworkPart1_Maven.png)
+
+</details>
+
+<details>
+<summary><strong>🏗️ Framework Part 2 – Page Object & Factory Design Pattern</strong></summary>
+
+- What is Page Object Model? Advantages of its implementation  
+- Creating Page Object classes for login screen and migrating the test  
+- Implementing action methods for Page Factory web elements to implement logic  
+- Creating abstract components to reuse common methods/code in framework  
+- Page Object class implementation for product catalogue page and update test  
+- Speed up your test execution – Fix for application slowness in the backend  
+- Creating common methods in abstract component and extending in Page classes  
+- Wrapping up the whole test with complete refactor into Page Object Model  
+
+📝 [Description](descriptions/FrameworkPart2_POM.md)  
+💻 [View Code](src/main/java/framework/part2)  
+🖼️ [Screenshot](screenshots/FrameworkPart2_POM.png)
+
+</details>
+<details>
+<summary><strong>🧪 Framework Part 3 – Test Configuration Methods, Global Properties & Parallel Runs</strong></summary>
+
+- Creating Base Test which holds common test configuration methods  
+- Initialize driver and create utility to launch app with `@BeforeMethod` annotation  
+- Create new error validation test as per framework standards developed until now  
+- Implement test strategy for framework on how tests are divided based on modules  
+- Create new test methods with `dependsOnMethods` attribute based on test strategy design  
+- How to run tests/classes in parallel & apply groups using `testng.xml`  
+
+📝 [Description](descriptions/FrameworkPart3_ConfigParallel.md)  
+💻 [View Code](src/main/java/framework/part3)  
+🖼️ [Screenshot](screenshots/FrameworkPart3_ConfigParallel.png)
+
+</details>
+
+<details>
+<summary><strong>🧩 Framework Part 4 – Test Strategy: Control Tests & Execution of Parallel Tests</strong></summary>
+
+- Agenda of implementing parameterization into tests with `@DataProvider`  
+- Integration of `HashMap` into DataProvider to send data as one hash object  
+- How to read the data from JSON files and create a list of HashMaps for testing  
+- How to create screenshot utility in BaseTest class for catching failed tests  
+
+📝 [Description](descriptions/FrameworkPart4_TestStrategy.md)  
+💻 [View Code](src/main/java/framework/part4)  
+🖼️ [Screenshot](screenshots/FrameworkPart4_TestStrategy.png)
+
+</details>
+
+<details>
+<summary><strong>📊 Framework Part 5 – Extent HTML Reports, TestNG Listeners & Thread-Safe Execution</strong></summary>
+
+- What are Extent Reports? Quick 30-minute tutorial  
+- Integrating Extent Reports into existing framework using TestNG listeners  
+- Attaching screenshots to reports from listeners on automatic test failures  
+- Concurrency problem – Implement `ThreadLocal` class to avoid sync issues in tests  
+- `IRetryAnalyzer` to rerun flaky failed Selenium tests in the framework  
+
+📝 [Description](descriptions/FrameworkPart5_ReportsListeners.md)  
+💻 [View Code](src/main/java/framework/part5)  
+🖼️ [Screenshot](screenshots/FrameworkPart5_ReportsListeners.png)
+
+</details>
+
+<details>
+<summary><strong>🚀 Framework Part 6 – Test Execution from Maven & Integration with Jenkins CI/CD</strong></summary>
+
+- How to run tests in the framework from terminal using Maven commands  
+- Set global parameters using Maven commands and update tests at runtime  
+- Install Jenkins in the local system for CI/CD  
+- Integrate the Selenium framework with Jenkins and parameterize Jenkins job  
+- How to run tests in headless mode and integrate the parameter in Jenkins  
+- Schedule Jenkins jobs with regular expressions and trigger nightly automation jobs  
+
+📝 [Description](descriptions/FrameworkPart6_MavenJenkins.md)  
+💻 [View Code](src/main/java/framework/part6)  
+🖼️ [Screenshot](screenshots/FrameworkPart6_MavenJenkins.png)
+
+</details>
+
