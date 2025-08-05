@@ -1,0 +1,21 @@
+Selenium Java Streams – Automate Sort, Pagination & Filtering Web Tables
+An introduction to using Java Streams for advanced web table automation.
+
+📌 Important Note: Plan of Learning This Section
+Overview of key learning objectives and approach for mastering Java Streams with Selenium.
+
+Learn Everything About Java Streams
+Fundamentals of Java Streams and how they apply to data processing in automation.
+
+Perform Web Table Sorting Using Selenium Java Streams
+Techniques to sort web table data efficiently using Java Streams.
+
+Build Custom Selenium Methods Using Streams & Mapper
+Creating reusable Selenium methods leveraging Streams and mapping functions.
+
+Automating Pagination Scenarios to Search the Data Using Do-While Loop
+Handling multi-page web tables through pagination automation using looping constructs.
+
+Filter the Web Table Using Selenium Java Streams
+Applying filter operations on web tables to extract specific data sets via Java Streams.
+
