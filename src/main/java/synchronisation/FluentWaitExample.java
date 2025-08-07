@@ -24,7 +24,7 @@ public class FluentWaitExample {
 		WebElement finishElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("finish")));
 		System.out.println("Text appeared: " + finishElement.getText());
 		System.out.println(finishElement.isDisplayed());
-
+		System.out.println("Malini");
 	}
 
 }
