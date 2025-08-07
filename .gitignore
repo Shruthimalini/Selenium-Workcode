@@ -1,0 +1,14 @@
+*.log
+*.class
+bin/
+target/
+.settings/
+.project
+.classpath
+*.iml
+.idea/
+*.jar
+*.war
+*.ear
+# Windows system folders
+AppData/
