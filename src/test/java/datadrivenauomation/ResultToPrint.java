@@ -11,63 +11,66 @@ import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ResultToPrint {
-	        public void writeResult(String testcaseName,String resultMessage) throws IOException {
-			FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
-			XSSFWorkbook workbook = new XSSFWorkbook(file);
-			int sheets = workbook.getNumberOfSheets();
-			for (int i = 0; i < sheets; i++) {
-				if (workbook.getSheetName(i).equals("demo")) {
-					XSSFSheet sheet = workbook.getSheetAt(i);
-					Iterator<Row> rows = sheet.iterator();
-					Row firstrow = rows.next();
-					 int testcaseColIndex = 0;
-			            int resultColIndex = 0;
 
-			            
-			            Iterator<Cell> cells = firstrow.cellIterator();
-			            int colIndex = 0;
-			            while (cells.hasNext()) {
-			                Cell cell = cells.next();
-			                String header = cell.getStringCellValue();
-			                if (header.equalsIgnoreCase("Testcases")) {
-			                    testcaseColIndex = colIndex;
-			                }
-			                if (header.equalsIgnoreCase("Result")) {
-			                    resultColIndex = colIndex;
-			                }
-			                colIndex++;
-			            }
+	public class ResultToPrint {
 
-			            if (testcaseColIndex == -1 || resultColIndex == -1) {
-			                System.out.println("Either Testcases or Result column not found!");
-			                workbook.close();
-			                file.close();
-			                return;
-			            }
-			            while (rows.hasNext()) {
-			                Row r = rows.next();
-			                Cell testcaseCell = r.getCell(testcaseColIndex);
-			                if (testcaseCell != null && testcaseCell.getStringCellValue().equalsIgnoreCase(testcaseName)) {
-			                    Cell resultCell = r.getCell(resultColIndex);
-			                   if (resultCell == null) {
-			                       resultCell = r.createCell(resultColIndex);
-			                    resultCell.setCellValue(resultMessage);
-			                    break;
-			                    }
-			                    
-			                }
-			            }
+	    public void writeResult(ArrayList<String> testDataRow, String resultMessage) throws IOException {
+	        FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
+	        XSSFWorkbook workbook = new XSSFWorkbook(file);
+	        file.close();
 
-			            file.close();
+	        XSSFSheet sheet = workbook.getSheet("demo");
+	        if (sheet == null) {
+	            workbook.close();
+	            throw new RuntimeException("Sheet 'demo' not found");
+	        }
 
-			            FileOutputStream outputStream = new FileOutputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
-			            workbook.write(outputStream);
-			            outputStream.close();
-			            workbook.close();
+	        int resultColIndex = -1;
+	        Row headerRow = sheet.getRow(0);
+	        for (int i = 0; i < headerRow.getLastCellNum(); i++) {
+	            if (headerRow.getCell(i).getStringCellValue().equalsIgnoreCase("Result")) {
+	                resultColIndex = i;
+	                break;
+	            }
+	        }
 
-			            System.out.println("Message written to Excel for testcase: " + testcaseName);
-			            break; 
-			        }
-			    }
-	        }}
+	        if (resultColIndex == -1) {
+	            workbook.close();
+	            throw new RuntimeException("Result column not found!");
+	        }
+
+	        
+	        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+	            Row row = sheet.getRow(i);
+	            if (row == null) continue;
+
+	            boolean match = true;
+	            for (int j = 0; j < testDataRow.size(); j++) {
+	                Cell cell = row.getCell(j);
+	                String cellValue = (cell == null) ? "" : cell.toString().trim();
+	                String expectedValue = testDataRow.get(j).trim();
+
+	                if (!cellValue.equalsIgnoreCase(expectedValue)) {
+	                    match = false;
+	                    break;
+	                }
+	            }
+
+	            if (match) {
+	                Cell resultCell = row.getCell(resultColIndex);
+	                if (resultCell == null) {
+	                    resultCell = row.createCell(resultColIndex);
+	                }
+	                resultCell.setCellValue(resultMessage);
+	                break;
+	            }
+	        }
+
+	        FileOutputStream out = new FileOutputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
+	        workbook.write(out);
+	        out.close();
+	        workbook.close();
+
+	        System.out.println("✅ Result written: " + resultMessage);
+	    }
+	}

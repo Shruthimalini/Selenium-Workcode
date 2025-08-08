@@ -12,14 +12,18 @@ public class DataProvide {
 
 		String[] testCases = { "Login", "Purchase" };
 
-		Object[][] data = new Object[testCases.length][1];
+		ArrayList<ArrayList<String>> combinedData = new ArrayList<>();
 
-		for (int i = 0; i < testCases.length; i++) {
-			ArrayList<String> testData = dataReader.getData(testCases[i]);
-			data[i][0] = testData;
+		for (String testCase : testCases) {
+			ArrayList<ArrayList<String>> allRows = dataReader.getAllData(testCase);
+			combinedData.addAll(allRows);
 		}
 
+		Object[][] data = new Object[combinedData.size()][1];
+
+		for (int i = 0; i < combinedData.size(); i++) {
+			data[i][0] = combinedData.get(i);
+		}
 		return data;
 	}
-
 }

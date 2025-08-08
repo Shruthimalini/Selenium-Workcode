@@ -12,52 +12,57 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelDataDriven {
 
-	public ArrayList<String> getData(String testcaseName) throws IOException {
-		FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
-		XSSFWorkbook workbook = new XSSFWorkbook(file);
-		ArrayList<String> data = new ArrayList<>();
-		int sheets = workbook.getNumberOfSheets();
-		for (int i = 0; i < sheets; i++) {
-			if (workbook.getSheetName(i).equals("demo")) {
-				XSSFSheet sheet = workbook.getSheetAt(i);
-				Iterator<Row> rows = sheet.iterator();
-				Row firstrow = rows.next();
-				Iterator<Cell> cells = firstrow.cellIterator();
-				int k = 0;
-				int columnindex = 0;
-				while (cells.hasNext()) {
-					Cell values = cells.next();
-					if (values.getStringCellValue().equalsIgnoreCase("Testcase")) {
-						columnindex = k;
-					}
-					k++;
-				}
+	public ArrayList<ArrayList<String>> getAllData(String testcaseName) throws IOException {
+	    FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
+	    XSSFWorkbook workbook = new XSSFWorkbook(file);
+	    ArrayList<ArrayList<String>> allData = new ArrayList<>();
 
-				System.out.println(columnindex);
-				while (rows.hasNext()) {
-					Row r = rows.next();
-					if (r.getCell(columnindex).getStringCellValue().equalsIgnoreCase(testcaseName)) {
-						Iterator<Cell> cellvalues = r.cellIterator();
-						while (cellvalues.hasNext()) {
-							Cell c = cellvalues.next();
-							if (c.getCellType() == CellType.STRING) {
-								data.add(c.getStringCellValue());
-							} else {
-								data.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+	    int sheets = workbook.getNumberOfSheets();
+	    for (int i = 0; i < sheets; i++) {
+	        if (workbook.getSheetName(i).equalsIgnoreCase("demo")) {
+	            XSSFSheet sheet = workbook.getSheetAt(i);
+	            Iterator<Row> rows = sheet.iterator();
 
-							}
+	           
+	            Row firstrow = rows.next();
+	            Iterator<Cell> cells = firstrow.cellIterator();
+	            int k = 0;
+	            int columnIndex = 0;
+	            while (cells.hasNext()) {
+	                Cell cell = cells.next();
+	                if (cell.getStringCellValue().equalsIgnoreCase("Testcase")) {
+	                    columnIndex = k;
+	                }
+	                k++;
+	            }
 
-						}
-						break;
+	            
+	            while (rows.hasNext()) {
+	                Row row = rows.next();
+	                Cell testCaseCell = row.getCell(columnIndex);
 
-					}
-				}
+	                if (testCaseCell != null && testCaseCell.getStringCellValue().equalsIgnoreCase(testcaseName)) {
+	                    ArrayList<String> rowData = new ArrayList<>();
+	                    Iterator<Cell> cellValues = row.cellIterator();
+	                    while (cellValues.hasNext()) {
+	                        Cell c = cellValues.next();
+	                        if (c.getCellType() == CellType.STRING) {
+	                            rowData.add(c.getStringCellValue());
+	                        } else {
+	                            rowData.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+	                        }
+	                    }
+	                    allData.add(rowData); 
+	                }
+	            }
+	        }
+	    }
 
-			}
-
-		}
-		return data;
+	    workbook.close();
+	    return allData;
 	}
+
+	
 
 	public static void main(String[] args) {
 
