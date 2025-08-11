@@ -37,7 +37,7 @@ public class SampleTest {
             case "login":
                 runLoginTest(testData);
                 break;
-
+            
             case "purchase":
                 runPurchaseTest(testData);
                 break;
