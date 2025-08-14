@@ -10,8 +10,6 @@ import org.testng.Assert;
 
 
 
-;
-
 public class Scroll {
 	public static void main(String[] args) throws InterruptedException {
 		int sum=0;
@@ -34,9 +32,5 @@ public class Scroll {
        System.out.println(total);
        Assert.assertEquals(total,sum);
         
-        
-		
-		
-		
 	}
 }
