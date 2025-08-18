@@ -192,7 +192,7 @@
 
 📝 [Description](descriptions/11_PracticalProblemsSelenium.md)  
 💻 [View Code](src/main/java/practicalProblems)  
-🖼️ [Screenshot](screenshots/11_PracticalProblemsSelenium.png)
+🖼️ [Screenshot](https://github.com/Malini2905/Selenium-PracticeWorkCode/issues/2)
 
 </details>
 
