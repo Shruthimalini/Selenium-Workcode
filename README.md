@@ -120,7 +120,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/07_FunctionalTesting.md)  
-💻 [View Code](src/seleniumpractice/07_FunctionalTesting.java)  
+💻 [View Code](src/main/java/functionalTesting) 
 🖼️ [Screenshot](screenshots/07_FunctionalTesting.png)
 
 </details>
@@ -140,7 +140,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/08_Synchronization.md)  
-💻 [View Code](src/seleniumpractice/08_Synchronization.java)  
+💻 [View Code](src/main/java/synchronisation)  
 🖼️ [Screenshot](screenshots/08_Synchronization.png)
 
 </details>
@@ -159,7 +159,7 @@
 - Code Practice  
 
 📝 [Description](descriptions/09_AjaxChildWindowsIFrames.md)  
-💻 [View Code](src/seleniumpractice/09_AjaxChildWindowsIFrames.java)  
+💻 [View Code](src/main/java/actionclass)  
 🖼️ [Screenshot](screenshots/09_AjaxChildWindowsIFrames.png)
 
 </details>
@@ -176,7 +176,7 @@
 - Generic method to handle calendar with month and date  
 
 📝 [Description](descriptions/10_RealTimeExercises.md)  
-💻 [View Code](src/main/java/realtime)  
+💻 [View Code](src/main/java/practiceExercise)  
 🖼️ [Screenshot](screenshots/10_RealTimeExercises.png)
 
 </details>
@@ -191,7 +191,7 @@
 - Autocomplete Dropdown – Assignment  
 
 📝 [Description](descriptions/11_PracticalProblemsSelenium.md)  
-💻 [View Code](src/main/java/practicalproblems)  
+💻 [View Code](src/main/java/practicalProblems)  
 🖼️ [Screenshot](screenshots/11_PracticalProblemsSelenium.png)
 
 </details>
