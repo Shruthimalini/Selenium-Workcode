@@ -210,7 +210,7 @@
 
 📝 [Description](descriptions/12_MiscTopicsSelenium.md)  
 💻 [View Code](src/main/java/miscellaneous)  
-🖼️ [Screenshot](screenshots/12_MiscTopicsSelenium.png)
+🖼️ [Screenshot](fileupload/MiscellaneousScreenshots.docx)
 
 </details>
 
