@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DragandDrop {
 	public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
+        int num=5000;
         driver.get("https://demo.guru99.com/test/drag_drop.html");
         driver.manage().window().maximize();
 
@@ -25,7 +26,7 @@ public class DragandDrop {
         
         WebElement bank = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'BANK')]")));
         WebElement sales = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'SALES')]")));
-        WebElement debitAmount = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(text(),'5000')])[2]")));
+        WebElement debitAmount = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(text(),'"+num+"')])[2]")));
         WebElement creditAmount = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(text(),'5000')])[2]")));
 
         WebElement debitAccount = driver.findElement(By.id("bank"));
