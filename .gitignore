@@ -12,3 +12,5 @@ target/
 *.ear
 # Windows system folders
 AppData/
+screenshots/
+fileupload/

@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="datadrivenauomation.SampleTest">
+      <class name="excelExample.ExcelPractice">
         <methods>
-          <include name="tearDown"/>
-          <include name="setup"/>
-          <include name="dataDrivenTest" invocation-numbers="1 2 3"/>
+          <include name="getExcel"/>
         </methods>
-      </class> <!-- datadrivenauomation.SampleTest -->
+      </class> <!-- excelExample.ExcelPractice -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
