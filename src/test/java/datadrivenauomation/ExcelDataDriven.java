@@ -62,8 +62,6 @@ public class ExcelDataDriven {
 	    return allData;
 	}
 
-	
-
 	public static void main(String[] args) {
 
 	}

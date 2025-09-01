@@ -1,4 +1,4 @@
-package seleniumpractice;
+package amazonautomate;
 
 import java.time.Duration;
 import java.util.Scanner;
@@ -18,6 +18,7 @@ public class Amazon {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.com/");
 		 driver.manage().deleteAllCookies();
+		 
 		driver.manage().window().maximize();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		try {
@@ -46,6 +47,24 @@ public class Amazon {
 		System.out.println("Please enter the OTP manually in the browser, then press Enter here to continue...");
 		sc.nextLine();
 		driver.findElement(By.id("cvf-submit-otp-button")).click();
+		WebElement accountMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		    By.id("nav-link-accountList")));
+
+		act.moveToElement(accountMenu).perform();
+
+		WebElement signOutBtn = wait.until(ExpectedConditions.elementToBeClickable(
+		    By.xpath("//span[text()='Sign Out']")));
+		signOutBtn.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='email']"))).sendKeys("7339585788");
+		signIn.click();
+		indiaOption.click();
+		driver.findElement(By.className("a-button-input")).click();
+		driver.findElement(By.id("signInSubmit")).click();
+		
+		
+		
+		
+		
 
         
 	}
