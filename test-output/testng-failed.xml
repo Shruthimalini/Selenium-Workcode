@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="excelExample.ExcelPractice">
+      <class name="streams.JavaStreams">
         <methods>
-          <include name="getExcel"/>
+          <include name="streamMap"/>
         </methods>
-      </class> <!-- excelExample.ExcelPractice -->
+      </class> <!-- streams.JavaStreams -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
