@@ -1,29 +1,24 @@
-package datadrivenauomation;
+package amazonautomate;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
-	public class ResultToPrint {
-
-	    public void writeResult(ArrayList<String> testDataRow, String resultMessage) throws IOException {
-	        FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\Test.xlsx");
+public class ExcelResult {
+	 public void writeResult(ArrayList<String> testDataRow, String resultMessage) throws IOException {
+	        FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\AmazonTestData.xlsx");
 	        XSSFWorkbook workbook = new XSSFWorkbook(file);
 	        file.close();
 
-	        XSSFSheet sheet = workbook.getSheet("demo");
+	        XSSFSheet sheet = workbook.getSheet("AmazonData");
 	        if (sheet == null) {
 	            workbook.close();
-	            throw new RuntimeException("Sheet 'demo' not found");
+	            throw new RuntimeException("Sheet 'AmazonData' not found");
 	        }
 
 	        int resultColIndex = -1;
@@ -75,3 +70,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 	        System.out.println("✅ Result written: " + resultMessage);
 	    }
 	}
+
+
+
