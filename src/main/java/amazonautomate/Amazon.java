@@ -55,7 +55,7 @@ public class Amazon {
         String product1 = data.get(3);
         String product2 = data.get(4);
 
-        signInToAmazon(driver, wait, sc, phone, password);
+        
         signInToIndia(driver,wait);
         signInToAmazon(driver, wait, sc, phone, password);
         purchaseProduct(driver, wait, product1);
@@ -84,23 +84,23 @@ public class Amazon {
         indiaOption.click();
 
         driver.findElement(By.className("a-button-input")).click();
-
         driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
         driver.findElement(By.id("signInSubmit")).click();
 
-        try {
-            WebElement toaster = wait
-                    .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".glow-toaster")));
-            WebElement dismissBtn = driver
-                    .findElement(By.xpath("//span[contains(@class,'glow-toaster-button-dismiss')]"));
-            dismissBtn.click();
-            System.out.println("Toaster dismissed.");
-        } catch (TimeoutException e) {
-            System.out.println("No toaster popup appeared.");
-        }
+        
     }
-    private void signInToIndia(WebDriver driver, WebDriverWait wait)
-            throws InterruptedException {
+    private void signInToIndia(WebDriver driver, WebDriverWait wait)   throws InterruptedException {
+    try {
+        WebElement toaster = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".glow-toaster")));
+        WebElement dismissBtn = driver
+                .findElement(By.xpath("//span[contains(@class,'glow-toaster-button-dismiss')]"));
+        dismissBtn.click();
+        System.out.println("Toaster dismissed.");
+    } catch (TimeoutException e) {
+        System.out.println("No toaster popup appeared.");
+    }
+          
         WebElement changeCountry = driver.findElement(By.id("icp-nav-flyout"));
         act.moveToElement(changeCountry).perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Change country/region.']"))).click();
@@ -153,10 +153,13 @@ public class Amazon {
                 }
             }
 
-           WebElement addToCartButton = driver.findElement(By.xpath("(//input[@type='submit' and @name='submit.add-to-cart' and @value='Add to Cart' and @class='a-button-input'])[2]"));
+           WebElement addToCartButton = driver.findElement(By.xpath("(//input[@id='add-to-cart-button' and @type='submit' and contains(@class,'a-button-input')])[2]"));
            // WebElement addToCartButton = driver.findElement(By.xpath("//input[@id='add-to-cart-button']"));
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",  addToCartButton);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();",  addToCartButton);
+            //((JavascriptExecutor) driver).executeScript("arguments[0].click();",  addToCartButton);
+            addToCartButton.click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//div[contains(@class,'a-section a-spacing-none a-padding-base attach-cart-info-container')]//a[contains(@class,'attach-close-button')]")).click();
 
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String timestamp = String.valueOf(System.currentTimeMillis());
