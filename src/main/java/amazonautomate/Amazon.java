@@ -24,6 +24,7 @@ public class Amazon {
 	WebDriverWait wait;
 	Scanner sc;
 	Actions act;
+	boolean regionChanged = false;
 
 	@BeforeTest
 	public void setUp() {
@@ -33,7 +34,6 @@ public class Amazon {
 		act = new Actions(driver);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		sc = new Scanner(System.in);
-
 		driver.get("https://www.amazon.com/");
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
@@ -52,18 +52,28 @@ public class Amazon {
 	public void amazonTest(ArrayList<String> data) throws InterruptedException, IOException {
 		String phone = data.get(1);
 		String password = data.get(2);
-		String product1 = data.get(3);
-		String product2 = data.get(4);
+		List<String> products = data.subList(3, 8);
+		
 
-		signInToIndia(driver, wait);
-		//signInToAmazon(driver, wait, sc, phone, password);
-		purchaseProduct(driver, wait, product1);
-		purchaseProduct(driver, wait, product2);
-		removeProduct(driver,wait,product1);
+		if (!regionChanged) {
+	        signInToIndia(driver, wait);
+	        regionChanged = true;}
+		
+		signInToAmazon(driver, wait, sc, phone, password);
+		for (String product : products) {
+		    purchaseProduct(driver, wait, product);
+		}
+		for (String product : products) {
+			removeProduct(driver, wait, product);
+		}
 
 		System.out.println("Successfully signed in");
+	
+        signOut();
+        driver.get("https://www.amazon.in/"); 
+        Thread.sleep(2000);	
+        signIn(driver, wait,  phone,password);
 	}
-
 	private void signInToAmazon(WebDriver driver, WebDriverWait wait, Scanner sc, String phone, String password)
 			throws InterruptedException {
 
@@ -72,9 +82,9 @@ public class Amazon {
 		act.moveToElement(accountList).build().perform();
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Sign in']"))).click();
-		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(phone);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_email_login")));
 		Thread.sleep(1000);
-
+		 try {
 		WebElement signIn = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".a-button-text.a-declarative")));
 		signIn.click();
@@ -82,7 +92,9 @@ public class Amazon {
 		WebElement indiaOption = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'India ')]")));
 		indiaOption.click();
-
+	 } catch (TimeoutException e) {
+		 		 System.out.println("India region selection not required. Continuing sign-in.");
+	    }
 		driver.findElement(By.className("a-button-input")).click();
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 		driver.findElement(By.id("signInSubmit")).click();
@@ -100,7 +112,8 @@ public class Amazon {
 		} catch (TimeoutException e) {
 			System.out.println("No toaster popup appeared.");
 		}
-
+			
+		
 		WebElement changeCountry = driver.findElement(By.id("icp-nav-flyout"));
 		act.moveToElement(changeCountry).perform();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Change country/region.']")))
@@ -119,6 +132,7 @@ public class Amazon {
 		for (String handle : driver.getWindowHandles()) {
 			driver.switchTo().window(handle);
 		}
+		 System.out.println("Switched to Amazon India.");
 	}
 
 	private static void purchaseProduct(WebDriver driver, WebDriverWait wait, String productName)
@@ -155,20 +169,18 @@ public class Amazon {
 
 			WebElement addToCartButton = driver.findElement(By.xpath(
 					"(//input[@id='add-to-cart-button' and @type='submit' and contains(@class,'a-button-input')])[2]"));
-			// WebElement addToCartButton =
-			// driver.findElement(By.xpath("//input[@id='add-to-cart-button']"));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addToCartButton);
-			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();",
-			// addToCartButton);
 			addToCartButton.click();
 			Thread.sleep(3000);
-			driver.findElement(By.xpath(
-					"//div[contains(@class,'attach-cart-info-container')]//a[contains(@class,'attach-close-button')]"))
-					.click();
-
+			try {
+			    WebElement closeBtn = driver.findElement(By.xpath("//div[contains(@class,'attach-cart-info-container')]//a[contains(@class,'attach-close-button')]"));
+			    closeBtn.click();
+			} catch (NoSuchElementException e) {
+			    System.out.println("Side cart not shown, proceeding without closing.");
+			}
 			File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			String timestamp = String.valueOf(System.currentTimeMillis());
-			File dest = new File("C:\\Users\\MaliniR\\Pictures\\Screenshots\\amazon_cart_" + timestamp + ".png");
+			File dest = new File(System.getProperty("user.home") + "/amazon_cart_" + timestamp + ".png");
 			FileUtils.copyFile(src, dest);
 
 		} else {
@@ -177,17 +189,45 @@ public class Amazon {
 	}
 
 	private static void removeProduct(WebDriver driver, WebDriverWait wait, String productName) {
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='add-to-cart-button']"))).click();
-		//WebElement ActiveCart=wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.a-cardui.sc-card-style.sc-list.sc-java-remote-feature.celwidget.sc-grid-view.sc-grid-full-width.sc-card-spacing-top-none")));
-       // List<WebElement> items=ActiveCart.findElements(By.xpath(".//div[contains(@class, 'sc-list-item')]//span[contains(@class, 'a-truncate-cut')]"));
-      //  for (WebElement item : items) {
-          //  if (item.getText().equalsIgnoreCase(productName)) {
-             //   System.out.println("Found and will remove: " + productName);
-         //       WebElement parent = item.findElement(By.xpath("./ancestor::div[contains(@class,'sc-list-item')]"));
-             //   WebElement deleteButton = parent.findElement(By.xpath(".//input[@value='Delete']"));
-           //     deleteButton.click();
-             //   break;
-            }
-       // }
- //   }
+	    wait.until(ExpectedConditions.elementToBeClickable(By.id("nav-cart-count-container"))).click();
+	    WebElement cartForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("activeCartViewForm")));
+	    List<WebElement> cartItems = cartForm.findElements(
+	        By.xpath(".//div[contains(@class,'sc-list-item')]")
+	    );
+	    boolean itemRemoved = false;
+	    for (WebElement item : cartItems) {
+	        try {
+	            WebElement titleElement = item.findElement(By.cssSelector("span.a-truncate-cut"));
+	            String title = titleElement.getText().trim();
+
+	            if (title.toLowerCase().contains(productName.toLowerCase())) {
+	                System.out.println("Found and will remove: " + title);
+	                WebElement deleteButton = item.findElement(By.xpath(".//button[@data-a-selector='decrement']"));
+	                deleteButton.click();
+	                wait.until(ExpectedConditions.stalenessOf(item));
+	                itemRemoved = true;
+	                break;
+	            }
+	        } catch (NoSuchElementException e) {
+	            continue;
+	        }
+	    }
 	}
+
+	
+	private void signOut() {
+	    WebElement accountList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nav-link-accountList")));
+	    act.moveToElement(accountList).perform();
+
+	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Sign Out']"))).click();
+	    System.out.println("Signed out successfully.");
+	}		
+	private static void signIn(WebDriver driver, WebDriverWait wait,String phone,String password ) {
+		driver.findElement(By.xpath("//input[@id='ap_email_login']")).sendKeys(phone);
+		driver.findElement(By.cssSelector(".a-button-input")).click();
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
+		driver.findElement(By.id("signInSubmit")).click();	
+	}
+	}
+ 
+	

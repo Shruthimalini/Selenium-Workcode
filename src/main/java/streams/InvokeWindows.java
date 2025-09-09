@@ -36,6 +36,9 @@ public class InvokeWindows {
 		String timestamp = String.valueOf(System.currentTimeMillis());
 		File dest = new File("C:\\Users\\MaliniR\\Pictures\\Screenshots\\webelement" + timestamp + ".png");
 		FileUtils.copyFile(src, dest);
+		System.out.println(name.getRect().getDimension().getHeight());
+		System.out.println(name.getRect().getDimension().getWidth());
+		
 
 	}
 }

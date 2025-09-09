@@ -1,4 +1,4 @@
-package datadrivenauomation;
+package datadrivenautomation;
 
 import org.testng.annotations.DataProvider;
 import java.io.IOException;
