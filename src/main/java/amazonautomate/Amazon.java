@@ -15,6 +15,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -25,6 +29,12 @@ public class Amazon {
 	Scanner sc;
 	Actions act;
 	boolean regionChanged = false;
+	
+	@BeforeSuite
+    public void beforeSuite() {
+        System.out.println("====== Test Suite Started ======");
+        
+    }
 
 	@BeforeTest
 	public void setUp() {
@@ -32,7 +42,7 @@ public class Amazon {
 		options.addArguments("--incognito");
 		driver = new ChromeDriver(options);
 		act = new Actions(driver);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		sc = new Scanner(System.in);
 		driver.get("https://www.amazon.com/");
 		driver.manage().deleteAllCookies();
@@ -50,6 +60,7 @@ public class Amazon {
 
 	@Test(dataProvider = "excelDataProvider", dataProviderClass = DataProvide.class)
 	public void amazonTest(ArrayList<String> data) throws InterruptedException, IOException {
+		 try {
 		String phone = data.get(1);
 		String password = data.get(2);
 		List<String> products = data.subList(3, 8);
@@ -66,14 +77,19 @@ public class Amazon {
 		for (String product : products) {
 			removeProduct(driver, wait, product);
 		}
-
-		System.out.println("Successfully signed in");
 	
         signOut();
         driver.get("https://www.amazon.in/"); 
         Thread.sleep(2000);	
         signIn(driver, wait,  phone,password);
-	}
+        Assert.assertTrue(true, "Test ran successfully for dataset.");
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        Assert.fail("Test failed due to exception: " + e.getMessage());
+		    }
+		}
+	
 	private void signInToAmazon(WebDriver driver, WebDriverWait wait, Scanner sc, String phone, String password)
 			throws InterruptedException {
 
@@ -82,7 +98,7 @@ public class Amazon {
 		act.moveToElement(accountList).build().perform();
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Sign in']"))).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_email_login")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_email_login"))).sendKeys(phone);
 		Thread.sleep(1000);
 		 try {
 		WebElement signIn = wait
@@ -221,13 +237,26 @@ public class Amazon {
 
 	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Sign Out']"))).click();
 	    System.out.println("Signed out successfully.");
-	}		
+	    Set<String> allWindows = driver.getWindowHandles();
+	    }
+		
 	private static void signIn(WebDriver driver, WebDriverWait wait,String phone,String password ) {
 		driver.findElement(By.xpath("//input[@id='ap_email_login']")).sendKeys(phone);
 		driver.findElement(By.cssSelector(".a-button-input")).click();
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 		driver.findElement(By.id("signInSubmit")).click();	
 	}
-	}
- 
+	/*@AfterClass
+	public void tearDown() {
+	    for (String window : driver.getWindowHandles()) {
+	        driver.switchTo().window(window);
+	        driver.close();
+	    }
 	
+	}*/@AfterSuite
+    public void afterSuite() {
+        System.out.println("====== Test Suite Finished ======");
+        
+    }
+	
+}
