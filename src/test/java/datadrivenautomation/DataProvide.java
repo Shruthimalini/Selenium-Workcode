@@ -1,8 +1,9 @@
 package datadrivenautomation;
 
-import org.testng.annotations.DataProvider;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import org.testng.annotations.DataProvider;
 
 public class DataProvide {
 

@@ -1,10 +1,13 @@
 package amazonFrameWorkAutomation;
 
-import amazonFrameWorkAutomation.AbstractComponent;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.*;
-
 import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class RemoveProductPage extends AbstractComponent {
 
@@ -20,7 +23,8 @@ public class RemoveProductPage extends AbstractComponent {
     }
 
     public void removeProduct(String productName) {
-        cartIcon.click();
+    	 waitForClickability(cartIcon).click();
+    	 waitForVisibility(cartForm);	
         List<WebElement> cartItems = cartForm.findElements(By.xpath(".//div[contains(@class,'sc-list-item')]"));
 
         for (WebElement item : cartItems) {

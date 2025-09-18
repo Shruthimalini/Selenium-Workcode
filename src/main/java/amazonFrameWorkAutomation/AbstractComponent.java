@@ -1,9 +1,16 @@
 package amazonFrameWorkAutomation;
 
 import java.time.Duration;
-import org.openqa.selenium.*;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AbstractComponent {
 
@@ -57,14 +64,13 @@ public class AbstractComponent {
             e.printStackTrace();
         }
     }
-    public void switchToNewWindow() {
-        String current = driver.getWindowHandle();
-        for (String handle : driver.getWindowHandles()) {
-            if (!handle.equals(current)) {
-                driver.switchTo().window(handle);
-                break;
-            }
-        }
+    public void switchToNewWindow() 
+    { String current = driver.getWindowHandle(); 
+    for (String handle : driver.getWindowHandles()) 
+    { if (!handle.equals(current)) { driver.switchTo().window(handle); 
+    break; 
+    }
+    }
     }
     public void acceptAlertIfPresent() {
         try {
