@@ -1,5 +1,6 @@
 package amazonFrameWorkAutomation;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,13 +54,16 @@ public class LoginPage extends AbstractComponent {
 
 	@FindBy(css = "input.a-button-input[type='submit']")
 	private WebElement goToWebsiteBtn;
+	 
+	@FindBy(id="auth-error-message-box")
+	private WebElement errorBox;
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
 
-	public void login(String phone, String password) {
+	public void login(String phone, String password) throws InterruptedException {
 		hoverOverElement(accountList);
 		waitForClickability(signInButton).click();
 		waitForVisibility(emailField).sendKeys(phone);
@@ -73,6 +77,16 @@ public class LoginPage extends AbstractComponent {
 
 		continueButton.click();
 		waitForVisibility(passwordField).sendKeys(password);
+		Thread.sleep(2000);
+		try {
+		    if(errorBox.isDisplayed()) {
+		    	String errorMessage = errorBox.getText();
+		    	System.out.println("Login failed with error: " + errorMessage);
+	            return; 
+	        }
+	    } catch (NoSuchElementException e) {
+	        System.out.println("No error box displayed after entering mobile.");
+	    }
 		signInSubmit.click();
 	}
 
@@ -84,7 +98,6 @@ public class LoginPage extends AbstractComponent {
 		waitForVisibility(changeCountryOption).click();
 		waitForClickability(dropdownPrompt).click();
 		waitForClickability(indiaOption1).click();
-
 		waitForClickability(goToWebsiteBtn).click();
 
 		switchToNewWindow();

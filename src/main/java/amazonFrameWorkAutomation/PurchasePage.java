@@ -69,5 +69,6 @@ public class PurchasePage extends AbstractComponent {
         } catch (Exception e) {
             System.out.println("No side cart appeared.");
         }
+        captureScreenshot("productAdded");
     }
 }

@@ -3,7 +3,6 @@ package amazonautomate;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +23,7 @@ public class BaseTest {
 	public void initializeDriver() throws IOException {
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(
-				System.getProperty("user.dir") + "\\src\\main\\java\\amazonautomate\\GlobalData.properties");
+				System.getProperty("user.dir") + "\\src\\test\\resources\\GlobalData.properties");
 		prop.load(fis);
 
 		String browserName = prop.getProperty("browser");
@@ -35,7 +34,7 @@ public class BaseTest {
 			driver = new ChromeDriver(options);
 
 		} else if (browserName.equalsIgnoreCase("edge")) {
-			System.setProperty("webdriver.edge.driver", "C:\\Users\\Lenovo\\Documents\\msedgedriver.exe");
+			System.setProperty("webdriver.edge.driver", "C:\\Users\\MaliniR\\Downloads\\edgedriver_win64\\msedgedriver.exe");
 			driver = new EdgeDriver();
 
 		}

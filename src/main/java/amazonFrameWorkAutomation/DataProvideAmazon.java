@@ -1,33 +1,22 @@
 package amazonFrameWorkAutomation;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.testng.annotations.DataProvider;
 
-import amazonautomate.DataFromExcel;
-
 public class DataProvideAmazon {
-	
-	@DataProvider(name = "excelDataProvider")
-	public Object[][] getExcelData() throws IOException {
-		DataFromExcel dataReader = new DataFromExcel();
 
-		String[] testCases = { "Login1", "Login2","Login3" };
+    @DataProvider(name = "jsonData")
+    public static Object[][] provideJsonData() throws Exception {
 
-		ArrayList<ArrayList<String>> combinedData = new ArrayList<>();
+        DataFromJson jsonReader = new DataFromJson();
+        List<HashMap<String, String>> dataList = jsonReader.getJsonDataToMap();
 
-		for (String testCase : testCases) {
-			ArrayList<ArrayList<String>> allRows = dataReader.getAllData(testCase);
-			combinedData.addAll(allRows);
-		}
-
-		Object[][] data = new Object[combinedData.size()][1];
-
-		for (int i = 0; i < combinedData.size(); i++) {
-			data[i][0] = combinedData.get(i);
-		}
-		return data;
-	}
+        Object[][] data = new Object[dataList.size()][1];
+        for (int i = 0; i < dataList.size(); i++) {
+            data[i][0] = dataList.get(i);
+        }
+        return data;
+    }
 }
-	

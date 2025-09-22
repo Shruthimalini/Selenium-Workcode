@@ -120,6 +120,17 @@ public class Amazon {
 	    }
 		driver.findElement(By.className("a-button-input")).click();
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
+		try {
+	    WebElement errorBox=driver.findElement(By.id("auth-error-message-box"));
+	    if(errorBox.isDisplayed()) {
+	    	String errorMessage = errorBox.getText();
+	    	System.out.println("Login failed with error: " + errorMessage);
+            return; 
+        }
+    } catch (NoSuchElementException e) {
+        System.out.println("No error box displayed after entering mobile.");
+    }
+	        
 		driver.findElement(By.id("signInSubmit")).click();
 
 	}

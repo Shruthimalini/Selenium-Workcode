@@ -1,0 +1,32 @@
+[
+  {
+    "Testcase":"Login1",
+    "PhoneNumber":"7339585788",
+    "Password":"Mali29@Amazon",
+    "Product 1":"Apple iPhone 14",
+    "Product 2":"SAMSUNG Galaxy S25",
+    "Product 3":"OnePlus Nord",
+    "Product 4":"POCO M6",
+    "Product 5":"Redmi 15"
+  },
+  {
+    "Testcase":"Login2",
+    "PhoneNumber":"6382640276",
+    "Password":"Jeyabala@2001",
+    "Product 1":"HP 15",
+    "Product 2":"SAMSUNG Galaxy S25",
+    "Product 3":"OnePlus Nord",
+    "Product 4":"ASUS Vivobook 15",
+    "Product 5":"Redmi 15"
+  },
+  {
+    "Testcase":"Login3",
+    "PhoneNumber":"6369656985",
+    "Password":"vimal vimal",
+    "Product 1":"Apple iPhone 15",
+    "Product 2":"SAMSUNG Galaxy S26",
+    "Product 3":"OnePlus Nord",
+    "Product 4":"POCO M6",
+    "Product 5":"Redmi 15"
+  }
+]
