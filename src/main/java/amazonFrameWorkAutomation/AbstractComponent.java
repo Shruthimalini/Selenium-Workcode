@@ -1,15 +1,9 @@
 package amazonFrameWorkAutomation;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,11 +54,7 @@ public class AbstractComponent {
     public void waitForStaleness(WebElement element) {
         wait.until(ExpectedConditions.stalenessOf(element));
     }
-    public void captureScreenshot(String namePrefix) {
-        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File dest = new File(System.getProperty("user.home") + "/amazon_" + namePrefix + "_" + timestamp + ".png");
-        }
+    
     
     public void sleep(int millis) {
         try {

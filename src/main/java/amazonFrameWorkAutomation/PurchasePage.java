@@ -3,7 +3,6 @@ package amazonFrameWorkAutomation;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -69,6 +68,6 @@ public class PurchasePage extends AbstractComponent {
         } catch (Exception e) {
             System.out.println("No side cart appeared.");
         }
-        captureScreenshot("productAdded");
+        
     }
 }

@@ -55,8 +55,10 @@ public class AmazonTest extends BaseTest {
 					purchasePage.purchaseProduct(product);
 				}
 			}
+			
 
 			RemoveProductPage removePage = new RemoveProductPage(driver);
+			
 			for (String product : products) {
 				if (!product.isEmpty()) {
 					removePage.removeProduct(product);

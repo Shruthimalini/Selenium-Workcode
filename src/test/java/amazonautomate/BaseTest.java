@@ -1,9 +1,16 @@
 package amazonautomate;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +39,7 @@ public class BaseTest {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--incognito");
 			driver = new ChromeDriver(options);
+			
 
 		} else if (browserName.equalsIgnoreCase("edge")) {
 			System.setProperty("webdriver.edge.driver", "C:\\Users\\MaliniR\\Downloads\\edgedriver_win64\\msedgedriver.exe");
@@ -56,5 +64,18 @@ public class BaseTest {
 			System.out.println("No 'Continue shopping' popup appeared.");
 		}
 	}
-
+	public String captureScreenshot(String testName) {
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String destPath = System.getProperty("user.dir") + "\\screenshots\\" + testName + "_" + timestamp + ".png";
+        File destFile = new File(destPath);
+        try {
+            FileUtils.copyFile(src, destFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return destPath;
+    }
+   
 }
+

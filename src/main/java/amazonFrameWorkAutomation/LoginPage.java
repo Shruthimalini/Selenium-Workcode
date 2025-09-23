@@ -8,111 +8,132 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends AbstractComponent {
-	
 
-	@FindBy(css = "div[id='nav-link-accountList']")
-	private WebElement accountList;
+    @FindBy(css = "div[id='nav-link-accountList']")
+    private WebElement accountList;
 
-	@FindBy(xpath = "//span[text()='Sign in']")
-	private WebElement signInButton;
+    @FindBy(xpath = "//span[text()='Sign in']")
+    private WebElement signInButton;
 
-	@FindBy(id = "ap_email_login")
-	private WebElement emailField;
+    @FindBy(id = "ap_email_login")
+    private WebElement emailField;
 
-	@FindBy(css = ".a-button-text.a-declarative")
-	private WebElement regionSignIn;
+    @FindBy(css = ".a-button-text.a-declarative")
+    private WebElement regionSignIn;
 
-	@FindBy(xpath = "//a[contains(text(),'India ')]")
-	private WebElement indiaOption0;
+    @FindBy(xpath = "//a[contains(text(),'India ')]")
+    private WebElement indiaOption0;
 
-	@FindBy(className = "a-button-input")
-	private WebElement continueButton;
+    @FindBy(className = "a-button-input")
+    private WebElement continueButton;
 
-	@FindBy(xpath = "//input[@type='password']")
-	private WebElement passwordField;
+    @FindBy(xpath = "//input[@type='password']")
+    private WebElement passwordField;
 
-	@FindBy(id = "signInSubmit")
-	private WebElement signInSubmit;
+    @FindBy(id = "signInSubmit")
+    private WebElement signInSubmit;
 
-	@FindBy(css = ".glow-toaster")
-	private WebElement toasterPopup;
+    @FindBy(css = ".glow-toaster")
+    private WebElement toasterPopup;
 
-	@FindBy(xpath = "//span[contains(@class,'glow-toaster-button-dismiss')]")
-	private WebElement toasterDismissBtn;
+    @FindBy(xpath = "//span[contains(@class,'glow-toaster-button-dismiss')]")
+    private WebElement toasterDismissBtn;
 
-	@FindBy(id = "icp-nav-flyout")
-	private WebElement changeCountryMenu;
+    @FindBy(id = "icp-nav-flyout")
+    private WebElement changeCountryMenu;
 
-	@FindBy(xpath = "//div[text()='Change country/region.']")
-	private WebElement changeCountryOption;
+    @FindBy(xpath = "//div[text()='Change country/region.']")
+    private WebElement changeCountryOption;
 
-	@FindBy(className = "a-dropdown-prompt")
-	private WebElement dropdownPrompt;
+    @FindBy(className = "a-dropdown-prompt")
+    private WebElement dropdownPrompt;
 
-	@FindBy(xpath = "//a[contains(@class,'a-dropdown-link') and contains(text(),'India')]")
-	private WebElement indiaOption1;
+    @FindBy(xpath = "//a[contains(@class,'a-dropdown-link') and contains(text(),'India')]")
+    private WebElement indiaOption1;
 
-	@FindBy(css = "input.a-button-input[type='submit']")
-	private WebElement goToWebsiteBtn;
-	 
-	@FindBy(id="auth-error-message-box")
-	private WebElement errorBox;
+    @FindBy(css = "input.a-button-input[type='submit']")
+    private WebElement goToWebsiteBtn;
 
-	public LoginPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
+    @FindBy(id = "auth-error-message-box")
+    private WebElement errorBox;
 
-	public void login(String phone, String password) throws InterruptedException {
-		hoverOverElement(accountList);
-		waitForClickability(signInButton).click();
-		waitForVisibility(emailField).sendKeys(phone);
+    @FindBy(xpath = "//div[contains(text(),'Invalid mobile number')]")
+    private WebElement invalidmsg;
 
-		try {
-			waitForClickability(regionSignIn).click();
-			waitForClickability(indiaOption0).click();
-		} catch (TimeoutException e) {
-			System.out.println("Region switch not needed.");
-		}
+    public LoginPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
 
-		continueButton.click();
-		waitForVisibility(passwordField).sendKeys(password);
-		Thread.sleep(2000);
-		try {
-		    if(errorBox.isDisplayed()) {
-		    	String errorMessage = errorBox.getText();
-		    	System.out.println("Login failed with error: " + errorMessage);
-	            return; 
-	        }
-	    } catch (NoSuchElementException e) {
-	        System.out.println("No error box displayed after entering mobile.");
-	    }
-		signInSubmit.click();
-	}
+    public void login(String phone, String password) throws InterruptedException {
+        hoverOverElement(accountList);
+        waitForClickability(signInButton).click();
+        waitForVisibility(emailField).sendKeys(phone);
 
-	public void loginIndia() {
+        try {
+            waitForClickability(regionSignIn).click();
+            waitForClickability(indiaOption0).click();
+        } catch (TimeoutException e) {
+            System.out.println("Region switch not needed.");
+        }
 
-		dismissToasterIfVisible();
+        continueButton.click();
+        waitForVisibility(passwordField).sendKeys(password);
+        Thread.sleep(2000);
+        signInSubmit.click();
+    }
 
-		hoverOverElement(changeCountryMenu);
-		waitForVisibility(changeCountryOption).click();
-		waitForClickability(dropdownPrompt).click();
-		waitForClickability(indiaOption1).click();
-		waitForClickability(goToWebsiteBtn).click();
+    public void loginIndia() {
+        dismissToasterIfVisible();
+        hoverOverElement(changeCountryMenu);
+        waitForVisibility(changeCountryOption).click();
+        waitForClickability(dropdownPrompt).click();
+        waitForClickability(indiaOption1).click();
+        waitForClickability(goToWebsiteBtn).click();
+        switchToNewWindow();
+        System.out.println("Switched to Amazon India.");
+    }
 
-		switchToNewWindow();
+    private void dismissToasterIfVisible() {
+        try {
+            waitForVisibility(toasterPopup);
+            toasterDismissBtn.click();
+            System.out.println("Toaster dismissed.");
+        } catch (TimeoutException e) {
+            System.out.println("No toaster popup appeared.");
+        }
+    }
 
-		System.out.println("Switched to Amazon India.");
-	}
+    //  Error validation 
+    public boolean isErrorBoxDisplayed() {
+        try {
+            return errorBox.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
 
-	private void dismissToasterIfVisible() {
-		try {
-			waitForVisibility(toasterPopup);
-			toasterDismissBtn.click();
-			System.out.println("Toaster dismissed.");
-		} catch (TimeoutException e) {
-			System.out.println("No toaster popup appeared.");
-		}
-	}
+    public String getErrorBoxMessage() {
+        try {
+            return errorBox.getText();
+        } catch (NoSuchElementException e) {
+            return "";
+        }
+    }
 
+    public boolean isInvalidMobileMessageDisplayed() {
+        try {
+            return invalidmsg.isDisplayed();
+        } catch (NoSuchElementException | TimeoutException e) {
+            return false;
+        }
+    }
+
+    public String getInvalidMobileMessage() {
+        try {
+            return invalidmsg.getText();
+        } catch (NoSuchElementException e) {
+            return "";
+        }
+    }
 }

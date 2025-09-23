@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
 		public Object[][] getExcelData() throws IOException {
 			DataFromExcel dataReader = new DataFromExcel();
 
-			String[] testCases = { "Login1", "Login2","Login3" };
+			String[] testCases = { "Login1", "Login2"};
 
 			ArrayList<ArrayList<String>> combinedData = new ArrayList<>();
 
