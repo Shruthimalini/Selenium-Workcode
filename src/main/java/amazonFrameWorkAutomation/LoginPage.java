@@ -65,7 +65,7 @@ public class LoginPage extends AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
-    public void login(String phone, String password) throws InterruptedException {
+    public void enterPhoneNumber(String phone) throws InterruptedException {
         hoverOverElement(accountList);
         waitForClickability(signInButton).click();
         waitForVisibility(emailField).sendKeys(phone);
@@ -78,11 +78,14 @@ public class LoginPage extends AbstractComponent {
         }
 
         continueButton.click();
-        waitForVisibility(passwordField).sendKeys(password);
-        Thread.sleep(2000);
-        signInSubmit.click();
+        Thread.sleep(2000);  
     }
 
+    public void enterPassword(String password) throws InterruptedException {
+        waitForVisibility(passwordField).sendKeys(password);
+        Thread.sleep(1000);
+        signInSubmit.click();
+    }
     public void loginIndia() {
         dismissToasterIfVisible();
         hoverOverElement(changeCountryMenu);

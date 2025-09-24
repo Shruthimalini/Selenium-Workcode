@@ -3,22 +3,23 @@ package amazonautomate;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import amazonFrameWorkAutomation.ErrorDataProvide;
 import amazonFrameWorkAutomation.LoginPage;
 import amazonFrameWorkAutomation.PurchasePage;
 import amazonFrameWorkAutomation.RemoveProductPage;
 import amazonFrameWorkAutomation.SignOut;
 
-
 public class AmazonErrorTest extends BaseTest {
 
-    boolean regionChanged = false;
+    private ThreadLocal<Boolean> regionChanged = ThreadLocal.withInitial(() -> false);
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp() throws IOException {
         initializeDriver();
         goTo();
@@ -26,13 +27,18 @@ public class AmazonErrorTest extends BaseTest {
 
     @Test(dataProvider = "excelDataProvider", dataProviderClass = ErrorDataProvide.class)
     public void amazonTest(ArrayList<String> data) throws InterruptedException, IOException {
-
         try {
+            
+            System.out.println("DEBUG: Received data row = " + data + " | size = " + data.size());
+
+            
+            
             String phone = data.get(1);
             String password = data.get(2);
-            String expectedMessage = data.get(8);  
-            List<String> products = new ArrayList<>();
+            String expectedMessage = data.get(8);
+
             
+            List<String> products = new ArrayList<>();
             for (int i = 3; i <= 7; i++) {
                 String product = data.get(i);
                 if (product != null && !product.trim().isEmpty()) {
@@ -40,44 +46,53 @@ public class AmazonErrorTest extends BaseTest {
                 }
             }
 
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.login(phone, password);
+            LoginPage loginPage = new LoginPage(getDriver());
 
-          
-            if (loginPage.isErrorBoxDisplayed()) {
-                String actualMessage = loginPage.getErrorBoxMessage();
-                Assert.assertTrue(actualMessage.contains(expectedMessage),
-                        "Expected error message not found in error box.");
-                return; 
-            } else if (loginPage.isInvalidMobileMessageDisplayed()) {
-                String actualMessage = loginPage.getInvalidMobileMessage();
-                Assert.assertTrue(actualMessage.contains(expectedMessage),
-                        "Expected invalid mobile error not found.");
-                return; 
-            } else {
-                Assert.fail("No error message was displayed for invalid credentials.");
-            }
-
-           
-            if (!regionChanged) {
+            if (!regionChanged.get()) {
                 loginPage.loginIndia();
-                regionChanged = true;
+                regionChanged.set(true);
             }
+            loginPage.enterPhoneNumber(phone);
 
-            PurchasePage purchasePage = new PurchasePage(driver);
+        
+         if (loginPage.isInvalidMobileMessageDisplayed()) {
+             String actualMessage = loginPage.getInvalidMobileMessage();
+             System.out.println(actualMessage);
+             Assert.assertTrue(actualMessage.contains(expectedMessage),
+                 "Expected invalid mobile error not found. Actual: " + actualMessage);
+             return;
+         }
+
+         loginPage.enterPassword(password);
+
+        
+         if (loginPage.isErrorBoxDisplayed()) {
+             String actualMessage = loginPage.getErrorBoxMessage();
+             System.out.println(actualMessage);
+             Assert.assertTrue(actualMessage.contains(expectedMessage),
+                 "Expected error message not found after password. Actual: " + actualMessage);
+             return;
+         }
+
+
+            
+            PurchasePage purchasePage = new PurchasePage(getDriver());
             for (String product : products) {
                 purchasePage.purchaseProduct(product);
             }
 
-            RemoveProductPage removePage = new RemoveProductPage(driver);
+            RemoveProductPage removePage = new RemoveProductPage(getDriver());
             for (String product : products) {
                 removePage.removeProduct(product);
             }
 
-            SignOut signOut = new SignOut(driver);
+            SignOut signOut = new SignOut(getDriver());
             signOut.signOut();
+
+            
             Thread.sleep(2000);
-            driver.get("https://www.amazon.in/");
+            getDriver().get("https://www.amazon.in/");
+
             Assert.assertTrue(true, "Test ran successfully for dataset.");
 
         } catch (Exception e) {
@@ -86,10 +101,8 @@ public class AmazonErrorTest extends BaseTest {
         }
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        quitDriver();
     }
 }

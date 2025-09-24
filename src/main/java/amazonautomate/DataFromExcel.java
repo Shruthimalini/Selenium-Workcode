@@ -1,10 +1,8 @@
 package amazonautomate;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -13,14 +11,15 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataFromExcel {
+	
 	public ArrayList<ArrayList<String>> getAllData(String testcaseName) throws IOException {
-	FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\AmazonTestData.xlsx");
+	FileInputStream file = new FileInputStream("C:\\Users\\MaliniR\\Documents\\AmazonErrorData.xlsx");
     XSSFWorkbook workbook = new XSSFWorkbook(file);
     ArrayList<ArrayList<String>> allData = new ArrayList<>();
 
     int sheets = workbook.getNumberOfSheets();
     for (int i = 0; i < sheets; i++) {
-        if (workbook.getSheetName(i).equalsIgnoreCase("AmazonData")) {
+        if (workbook.getSheetName(i).equalsIgnoreCase("Sheet1")) {
             XSSFSheet sheet = workbook.getSheetAt(i);
             Iterator<Row> rows = sheet.iterator();
 
@@ -67,7 +66,3 @@ public static void main(String[] args) {
 
 }
 }
-
-    
-    
-	
