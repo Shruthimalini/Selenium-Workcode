@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\MaliniR\AppData\Local\Temp\testng-eclipse-320242845\testng-customsuite.xml</span>
+                    <span>C:\Users\MaliniR\AppData\Local\Temp\testng-eclipse-77814018\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="streams.JavaStreams" class="method navigator-link" hash-for-method="streamCollect">streamCollect</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="amazonautomate.AmazonErrorTest" class="method navigator-link" hash-for-method="amazonTest([Login1, 733958788, Mali29@Amazon, Apple iPhone 14, SAMSUNG Galaxy S25, OnePlus Nord, POCO M6, Redmi...)">amazonTest([Login1, 733958788, Mali29@Amazon, Apple iPhone 14, SAMSUNG Galaxy S25, OnePlus Nord, POCO M6, Redmi...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="amazonautomate.AmazonErrorTest" class="method navigator-link" hash-for-method="amazonTest([Login2, 7339585788, Mali29@Amzon, Apple iPone 14, NULL, NULL, NULL, NULL, There was a problem])">amazonTest([Login2, 7339585788, Mali29@Amzon, Apple iPone 14, NULL, NULL, NULL, NULL, There was a problem])</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,14 +126,23 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">streams.JavaStreams</span>
+              <span class="class-name">amazonautomate.AmazonErrorTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="streamCollect">
-                  </a> <!-- streamCollect -->
-                  <span class="method-name">streamCollect</span>
+                  <a name="amazonTest([Login1, 733958788, Mali29@Amazon, Apple iPhone 14, SAMSUNG Galaxy S25, OnePlus Nord, POCO M6, Redmi...)">
+                  </a> <!-- amazonTest([Login1, 733958788, Mali29@Amazon, Apple iPhone 14, SAMSUNG Galaxy S25, OnePlus Nord, POCO M6, Redmi...) -->
+                  <span class="method-name">amazonTest</span>
+                  <span class="parameters">([Login1, 733958788, Mali29@Amazon, Apple iPhone 14, SAMSUNG Galaxy S25, OnePlus Nord, POCO M6, Redmi 15, Invalid mobile number])</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="amazonTest([Login2, 7339585788, Mali29@Amzon, Apple iPone 14, NULL, NULL, NULL, NULL, There was a problem])">
+                  </a> <!-- amazonTest([Login2, 7339585788, Mali29@Amzon, Apple iPone 14, NULL, NULL, NULL, NULL, There was a problem]) -->
+                  <span class="method-name">amazonTest</span>
+                  <span class="parameters">([Login2, 7339585788, Mali29@Amzon, Apple iPone 14, NULL, NULL, NULL, NULL, There was a problem])</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +150,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\MaliniR\AppData\Local\Temp\testng-eclipse-320242845\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\MaliniR\AppData\Local\Temp\testng-eclipse-77814018\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,7 +159,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;streams.JavaStreams&quot;/&gt;
+      &lt;class name=&quot;amazonautomate.AmazonErrorTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -185,16 +199,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'streamCollect')
-data.setCell(0, 2, 'streams.JavaStreams')
-data.setCell(0, 3, 18);
+data.setCell(0, 1, 'amazonTest')
+data.setCell(0, 2, 'amazonautomate.AmazonErrorTest')
+data.setCell(0, 3, 10421);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'amazonTest')
+data.setCell(1, 2, 'amazonautomate.AmazonErrorTest')
+data.setCell(1, 3, 9828);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 ms</span>
+              <span class="suite-total-time">Total running time: 20 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -220,11 +238,31 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">streams.JavaStreams</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">streamCollect</span>
+              <div class="chronological-class-name">amazonautomate.AmazonErrorTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">amazonTest([Login1, 733958788, Mali29@Amazon, Apple iPhone 14, SAMSUNG Galaxy S25, OnePlus Nord, POCO M6, Redmi...)</span>
+                <span class="method-start">2767 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">13191 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">13516 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">amazonTest([Login2, 7339585788, Mali29@Amzon, Apple iPone 14, NULL, NULL, NULL, NULL, There was a problem])</span>
+                <span class="method-start">17209 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">27039 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
