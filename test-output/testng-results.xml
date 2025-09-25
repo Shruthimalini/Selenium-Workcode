@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-24T18:13:21 IST" name="Default suite" finished-at="2025-09-24T18:13:49 IST" duration-ms="28151">
+  <suite started-at="2025-09-25T12:23:59 IST" name="Default suite" finished-at="2025-09-25T12:24:41 IST" duration-ms="41976">
     <groups>
     </groups>
-    <test started-at="2025-09-24T18:13:21 IST" name="Default test" finished-at="2025-09-24T18:13:49 IST" duration-ms="28151">
+    <test started-at="2025-09-25T12:23:59 IST" name="Default test" finished-at="2025-09-25T12:24:41 IST" duration-ms="41976">
       <class name="amazonautomate.AmazonErrorTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-24T18:13:22 IST" name="setUp" finished-at="2025-09-24T18:13:25 IST" duration-ms="2766" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-25T12:24:00 IST" name="setUp" finished-at="2025-09-25T12:24:08 IST" duration-ms="7594" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="amazonTest(java.util.ArrayList)[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-24T18:13:25 IST" name="amazonTest" data-provider="excelDataProvider" finished-at="2025-09-24T18:13:35 IST" duration-ms="10421" status="PASS">
+        <test-method signature="amazonTest(java.util.ArrayList)[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-25T12:24:08 IST" name="amazonTest" data-provider="excelDataProvider" finished-at="2025-09-25T12:24:24 IST" duration-ms="16338" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,15 +22,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- amazonTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-24T18:13:35 IST" name="tearDown" finished-at="2025-09-24T18:13:36 IST" duration-ms="324" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-25T12:24:24 IST" name="tearDown" finished-at="2025-09-25T12:24:24 IST" duration-ms="321" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-24T18:13:36 IST" name="setUp" finished-at="2025-09-24T18:13:39 IST" duration-ms="3693" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-25T12:24:24 IST" name="setUp" finished-at="2025-09-25T12:24:29 IST" duration-ms="4345" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="amazonTest(java.util.ArrayList)[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-24T18:13:39 IST" name="amazonTest" data-provider="excelDataProvider" finished-at="2025-09-24T18:13:49 IST" duration-ms="9828" status="PASS">
+        <test-method signature="amazonTest(java.util.ArrayList)[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-25T12:24:29 IST" name="amazonTest" data-provider="excelDataProvider" finished-at="2025-09-25T12:24:41 IST" duration-ms="12122" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -41,7 +41,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- amazonTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-24T18:13:49 IST" name="tearDown" finished-at="2025-09-24T18:13:49 IST" duration-ms="359" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:amazonautomate.AmazonErrorTest@55dfcc6]" started-at="2025-09-25T12:24:41 IST" name="tearDown" finished-at="2025-09-25T12:24:41 IST" duration-ms="325" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

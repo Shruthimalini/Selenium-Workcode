@@ -25,7 +25,11 @@ public class AmazonErrorTest extends BaseTest {
         goTo();
     }
 
-    @Test(dataProvider = "excelDataProvider", dataProviderClass = ErrorDataProvide.class)
+   @Test(
+            dataProvider = "excelDataProvider",
+            dataProviderClass = ErrorDataProvide.class,
+            retryAnalyzer = amazonautomate.Retry.class
+        )
     public void amazonTest(ArrayList<String> data) throws InterruptedException, IOException {
         try {
             

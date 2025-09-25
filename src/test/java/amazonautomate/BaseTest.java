@@ -37,7 +37,15 @@ public class BaseTest {
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\GlobalData.properties");
         prop.load(fis);
 
-        String browser = prop.getProperty("browser");
+        String browser = System.getProperty("browser");
+
+        
+        if (browser == null || browser.trim().isEmpty()) {
+            browser = prop.getProperty("browser");
+            System.out.println("No runtime browser parameter passed. Falling back to properties file: " + browser);
+        } else {
+            System.out.println("Runtime browser parameter found: " + browser);
+        }
         WebDriver driver;
 
         if (browser.equalsIgnoreCase("chrome")) {
@@ -45,6 +53,7 @@ public class BaseTest {
             options.addArguments("--incognito");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("edge")) {
+        	System.setProperty("webdriver.edge.driver", "C:\\Users\\MaliniR\\Downloads\\edgedriver_win64\\msedgedriver.exe");
             driver = new EdgeDriver();
         } else {
             throw new IllegalArgumentException("Unsupported browser in properties file: " + browser);
