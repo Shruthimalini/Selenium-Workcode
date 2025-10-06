@@ -3,60 +3,81 @@ package configDrivenAutomation;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import amazonFrameWorkAutomation.AbstractComponent;
 
-public class KeywordExecutor {
+public class KeywordExecutor extends AbstractComponentConfig {
 
-    WebDriver driver;
-    AbstractComponentConfig component;
-    ExcelDrivenData elementReader;
+    ConfigExcelDrivenData elementReader;
 
     public KeywordExecutor(WebDriver driver) {
-        this.driver = driver;
-        this.component = new AbstractComponentConfig(driver);
-        this.elementReader = new ExcelDrivenData();
+        super(driver);
+        this.elementReader = new ConfigExcelDrivenData();
     }
 
-    public void execute(String stepsExcelPath, String stepsSheet, String testDataExcelPath,
-                        String testDataSheet, String testCaseId) throws IOException {
-
-        List<Map<String, String>> steps = elementReader.getStepsForTestCase(stepsExcelPath, stepsSheet, testCaseId);
-        Map<String, String> testData = elementReader.getTestDataForTestCase(testDataExcelPath, testDataSheet, testCaseId);
+    public void execute(String stepsExcelPath, String stepsSheet, Map<String, String> testData) throws IOException {
+        List<Map<String, String>> steps = elementReader.getAllSteps(stepsExcelPath, stepsSheet);
 
         for (Map<String, String> step : steps) {
-            String action = step.get("Action").toLowerCase();
-            String elementType = step.get("ElementType").toLowerCase();
+            String action = step.get("Action");
+            if (action == null || action.isEmpty()) {
+                System.out.println("Skipping step due to empty Action");
+                continue;
+            }
+
+            action = action.toLowerCase();
+            String elementType = step.get("ElementType") != null ? step.get("ElementType").toLowerCase() : "";
             String locatorType = step.get("LocatorType");
             String locatorValue = step.get("LocatorValue");
             String testDataKey = step.get("TestData");
 
-            WebElement element = findElement(locatorType, locatorValue);
-            String data = (testDataKey != null && !testDataKey.isEmpty()) ? testData.get(testDataKey) : "";
+            WebElement element = null;
+            if (locatorType != null && locatorValue != null && !locatorType.isEmpty() && !locatorValue.isEmpty()) {
+                element = findElement(locatorType, locatorValue);
+            }
 
-            performAction(action, elementType, element, data);
+            String data = (testDataKey != null && !testDataKey.isEmpty()) ? testData.get(testDataKey) : "";
+            performAction(action, elementType, element, data, locatorType, locatorValue);
         }
     }
 
     private WebElement findElement(String locatorType, String locatorValue) {
-        switch (locatorType.toLowerCase()) {
-            case "id": return driver.findElement(By.id(locatorValue));
-            case "xpath": return driver.findElement(By.xpath(locatorValue));
-            case "css": return driver.findElement(By.cssSelector(locatorValue));
-            case "classname": return driver.findElement(By.className(locatorValue));
-            default: throw new RuntimeException("Invalid locator type: " + locatorType);
-        }
+        return driver.findElement(getBy(locatorType, locatorValue));
     }
 
-    private void performAction(String action, String elementType, WebElement element, String data) {
+    private void performAction(String action, String elementType, WebElement element, String data,
+                               String locatorType, String locatorValue) {
         switch (action) {
-            case "hover": component.hoverOverElement(element); break;
-            case "click": element.click(); break;
-            case "entertext": if (elementType.equals("textbox") || elementType.equals("input")) element.sendKeys(data); break;
-            case "dismiss": element.click(); break;
-            case "switchwindow": component.switchToNewWindow(); break;
-            default: System.out.println("Unknown action: " + action);
+            case "hover":
+                if (element != null) hoverOverElement(element);
+                break;
+
+            case "click":
+                if (element != null) element.click();
+                break;
+
+            case "entertext":
+                if (element != null && (elementType.equalsIgnoreCase("textbox") || elementType.equalsIgnoreCase("input")))
+                    element.sendKeys(data);
+                break;
+
+            case "dismiss":
+                if (element != null) waitForVisibility(element);
+                break;
+
+            case "clicklistbytext":
+                if (locatorType != null && locatorValue != null && !data.isEmpty()) {
+                    clickListByText(locatorType, locatorValue, data);
+                }
+                break;
+
+            case "switchwindow":
+                switchToNewWindow();
+                break;
+
+            default:
+                System.out.println("Unknown action: " + action);
         }
     }
 }

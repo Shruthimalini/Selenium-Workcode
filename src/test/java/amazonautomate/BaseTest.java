@@ -1,3 +1,4 @@
+
 package amazonautomate;
 
 import java.io.File;
@@ -48,10 +49,16 @@ public class BaseTest {
         }
         WebDriver driver;
 
-        if (browser.equalsIgnoreCase("chrome")) {
+        if (browser.equals("headless") || browser.equals("chromeheadless")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new", "--incognito");
+            driver = new ChromeDriver(options);
+
+        } else if (browser.contains("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
             driver = new ChromeDriver(options);
+
         } else if (browser.equalsIgnoreCase("edge")) {
         	System.setProperty("webdriver.edge.driver", "C:\\Users\\MaliniR\\Downloads\\edgedriver_win64\\msedgedriver.exe");
             driver = new EdgeDriver();

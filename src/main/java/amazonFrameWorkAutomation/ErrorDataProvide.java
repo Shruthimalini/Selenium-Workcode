@@ -2,9 +2,7 @@ package amazonFrameWorkAutomation;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.testng.annotations.DataProvider;
-
 import amazonautomate.DataFromExcel;
 
 public class ErrorDataProvide {

@@ -1,91 +1,107 @@
 package configDriven;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Map;
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import configDrivenAutomation.ExcelDrivenData;
-
+import configDrivenAutomation.BrowserReader;
 
 public class BaseTestConfig {
 
-
-
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<WebDriverWait> threadWait = new ThreadLocal<>();
+    protected BrowserReader configData;
+    private String baseUrl;  
 
-    private ExcelDrivenData excelReader = new ExcelDrivenData();
-
-    /**
-     * Returns current driver instance
-     */
     public WebDriver getDriver() {
         return threadDriver.get();
     }
 
-    /**
-     * Returns current wait instance
-     */
     public WebDriverWait getWait() {
         return threadWait.get();
     }
 
-    /**
-     * Initializes WebDriver and opens URL from configuration sheet
-     */
     public void initializeDriver() throws IOException {
-        // Excel path for test data/configuration
-        String excelPath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData.xlsx";
+    	configData = new BrowserReader();
 
-        // Read configuration (Browser + URL)
-        Map<String, String> config = excelReader.getConfiguration(excelPath);
-        String browser = config.get("Browser");
-        String url = config.get("URL");
+        Map<String, String> config =configData .getConfiguration(
+                "C:\\Users\\MaliniR\\Documents\\ConfigData.xlsx",
+                "Configuration"
+        );
 
-        if (browser == null || browser.trim().isEmpty()) {
-            throw new IOException("Browser not defined in configuration sheet.");
-        }
+        String browserName = config.get("Browser");
+        baseUrl = config.get("URL");
+
+        System.out.println("Browser from Excel: " + browserName);
+        System.out.println("URL from Excel: " + baseUrl);
 
         WebDriver driver;
 
-        switch (browser.toLowerCase()) {
-            case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--incognito");
-                driver = new ChromeDriver(options);
-                break;
-
-            case "edge":
-                System.setProperty("webdriver.edge.driver", "C:\\Users\\MaliniR\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-                driver = new EdgeDriver();
-                break;
-
-            default:
-                throw new IllegalArgumentException("Unsupported browser: " + browser);
+        if (browserName.equalsIgnoreCase("chrome")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--start-maximized");
+            driver = new ChromeDriver(options);
+        } else if (browserName.equalsIgnoreCase("edge")) {
+            driver = new EdgeDriver();
+        } else {
+            throw new RuntimeException("Unsupported browser: " + browserName);
         }
 
         threadDriver.set(driver);
         threadWait.set(new WebDriverWait(driver, Duration.ofSeconds(15)));
 
-        getDriver().manage().window().maximize();
-        getDriver().manage().deleteAllCookies();
+       
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 
-        // Open URL from configuration
-        if (url != null && !url.trim().isEmpty()) {
-            getDriver().get(url);
-        } else {
-            throw new IOException("URL not defined in configuration sheet.");
+    public void goTo() {
+        getDriver().get(baseUrl);
+        getDriver().manage().deleteAllCookies();
+        try {
+            WebElement continueBtn = getWait().until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='submit']"))
+            );
+            continueBtn.click();
+            System.out.println("Handled 'Continue shopping' popup.");
+        } catch (TimeoutException e) {
+            System.out.println("'Continue shopping' popup not appeared.");
         }
     }
 
-    /**
-     * Close browser and clean up
-     */
+    public String captureScreenshot(String testName) {
+        WebDriver driver = getDriver();
+        if (driver == null) {
+            System.out.println("Driver is null. Screenshot cannot be captured.");
+            return null;
+        }
+
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String destDir = System.getProperty("user.dir") + "\\screenshots\\";
+        String destPath = destDir + testName + "_" + timestamp + ".png";
+
+        try {
+            File dir = new File(destDir);
+            if (!dir.exists()) dir.mkdirs();
+            FileUtils.copyFile(src, new File(destPath));
+            System.out.println("Screenshot saved at: " + destPath);
+            return destPath;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public void quitDriver() {
         if (getDriver() != null) {
             getDriver().quit();
@@ -94,6 +110,3 @@ public class BaseTestConfig {
         }
     }
 }
-
-
-    
